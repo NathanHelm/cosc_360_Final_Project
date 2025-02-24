@@ -1,0 +1,92 @@
+/* css variables: var(--name, value)*/
+:root{
+    --mainYellowColor: #F6E086;
+}
+body{
+    background-color: black;
+    max-width: 1220px;
+}
+nav .flexbox_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+nav .flexbox_child{
+    background-color: #F5F5F5;
+    border-style: none;
+    margin: 1em 5px 0 5px;
+}
+nav .flexbox_child:hover{
+    background-color: darkgrey;
+    color: white;
+    border-style: none;
+}
+
+main .flexbox_main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+main figure img {
+   object-fit: cover;
+   width: 300px;
+   height: 700px;
+}
+main figure div{
+    width: 300px;
+    height: 700px;
+    background-color: var(--mainYellowColor);
+}
+main figure{
+    margin: 0px;
+
+}
+
+
+/*css for sign up box*/
+.flex_column{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /*centers column*/
+    flex-direction: column;
+}
+.signup_box
+{
+   
+    background-color: #F5F5F5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.signup_title
+{
+   font-size: 5em;
+   color:white;
+}
+.signup_box p
+{
+    position: relative;
+}
+
+
+
+ 
+#home{
+    position: absolute;
+    margin-right: 100px;
+    margin-left: 5px;
+    width: 30px;
+    height:30px;
+    
+}
+nav {
+
+    background-color: var(--mainYellowColor);
+    padding: 10px;
+    margin-bottom: 1em;
+   
+}
+main{
+    background-color: #F5F5F5;
+}
