@@ -183,3 +183,27 @@ a {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+footer {
+    background-color: white;
+    padding-left: 5%;
+}
+
+table {
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 2%;
+}
+
+td {
+    padding: 2%;
+}
+
+#copyright {
+    color: grey;
+    margin: 2%;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    cursor:pointer;
+}
