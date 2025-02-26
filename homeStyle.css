@@ -91,12 +91,15 @@
 }
 
 .card {
-    width: 200px;
-    height: 300px;
+    /* width: 200px;
+    height: 300px; */
+    width: 20%;
+    height: 30%;
     background-color: white;
     margin: 50px;
     padding-top: 20px;
     border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .card:hover {
@@ -104,7 +107,7 @@
     box-shadow:  6px 5px 20px 1px rgba(0,0,0,0.22);
 }
 
-.card h3:hover {
+.card a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -112,8 +115,10 @@
 .card img {
     display: block;
     object-fit:cover;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+    /* width: 75%;
+    height: 75%; */
     margin: auto;
 }
 
@@ -125,4 +130,17 @@
 .cardText p {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.cardText button {
+    background-color: #948927;
+    padding: 3% 5%;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+.cardText button:hover {
+    cursor: pointer;
+    background-color: #6a862f;
 }

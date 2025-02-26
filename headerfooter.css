@@ -70,22 +70,28 @@ a {
 /*Footer*/
 
 footer {
-    background-color: white;
+    background-color: #066f62;
     padding-left: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 table {
     font-family:Arial, Helvetica, sans-serif;
-    margin: 2%;
+    /* margin: 2%; */
 }
 
-td {
+footer td {
     padding: 2%;
+}
+
+footer a {
+    color: #9ccec7;
 }
 
 #copyright {
     color: grey;
-    margin: 2%;
+    margin: 2% 0%;
 }
 
 footer a:hover {
