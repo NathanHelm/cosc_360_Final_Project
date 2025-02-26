@@ -1,0 +1,94 @@
+*, html { /*reset default margins and padding*/
+    margin:0;
+    padding:0;  
+ }
+
+ /*Header*/
+
+ nav {
+    background-color: #F6E086;
+    overflow: hidden;
+    padding: 1% 2%;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+header {
+    top: 0;
+    position: sticky;
+}
+
+ ul {
+    float: right;
+}
+
+nav li {
+    display: inline;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+nav li img {
+    position: relative;
+    top: 5px; /* Adjust as needed */
+}
+
+nav li.basic:hover {
+    background-color: white;
+}
+
+
+
+nav button {
+    padding: 8px 15px;
+    border: 1px solid black;
+    border-radius: 8px;
+    border:none;
+    color:white; 
+}
+
+a {
+    color: black;
+    text-decoration: none; /* no underline */
+  }
+
+#signIn {
+    background-color: #ba8b2e;
+}
+
+#signIn:hover {
+    background-color: #a57b28;
+}
+
+#register {
+    background-color: #984325;
+}
+
+#register:hover {
+    background-color: #81371d;
+}
+
+/*Footer*/
+
+footer {
+    background-color: white;
+    padding-left: 5%;
+}
+
+table {
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 2%;
+}
+
+td {
+    padding: 2%;
+}
+
+#copyright {
+    color: grey;
+    margin: 2%;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    cursor:pointer;
+}

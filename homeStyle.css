@@ -4,68 +4,6 @@
  }
 
 
-nav {
-    background-color: #F6E086;
-    overflow: hidden;
-    padding: 1% 2%;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-header {
-    top: 0;
-    position: sticky;
-}
-
- ul {
-    float: right;
-}
-
-nav li {
-    display: inline;
-    padding: 8px 15px;
-    border-radius: 8px;
-}
-
-nav li img {
-    position: relative;
-    top: 5px; /* Adjust as needed */
-}
-
-nav li.basic:hover {
-    background-color: white;
-}
-
-
-
-nav button {
-    padding: 8px 15px;
-    border: 1px solid black;
-    border-radius: 8px;
-    border:none;
-    color:white; 
-}
-
-a {
-    color: black;
-    text-decoration: none; /* no underline */
-  }
-
-#signIn {
-    background-color: #ba8b2e;
-}
-
-#signIn:hover {
-    background-color: #a57b28;
-}
-
-#register {
-    background-color: #984325;
-}
-
-#register:hover {
-    background-color: #81371d;
-}
-
 #bannerContainer {
     overflow: hidden;
     /* background-color: #F6E086; */
@@ -149,7 +87,7 @@ a {
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    background-image: linear-gradient(to bottom, white, #F6E086);
+    background-image: linear-gradient(to bottom, #FDF7DF, #F6E086);
 }
 
 .card {
@@ -164,6 +102,11 @@ a {
 .card:hover {
     cursor: pointer;
     box-shadow:  6px 5px 20px 1px rgba(0,0,0,0.22);
+}
+
+.card h3:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .card img {
@@ -182,28 +125,4 @@ a {
 .cardText p {
     padding-top: 5px;
     padding-bottom: 5px;
-}
-
-footer {
-    background-color: white;
-    padding-left: 5%;
-}
-
-table {
-    font-family:Arial, Helvetica, sans-serif;
-    margin: 2%;
-}
-
-td {
-    padding: 2%;
-}
-
-#copyright {
-    color: grey;
-    margin: 2%;
-}
-
-footer a:hover {
-    text-decoration: underline;
-    cursor:pointer;
 }
