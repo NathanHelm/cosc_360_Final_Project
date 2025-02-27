@@ -7,7 +7,7 @@
 #bannerContainer {
     overflow: hidden;
     /* background-color: #F6E086; */
-    background-image: linear-gradient(to bottom, #F6E086 30%, white);
+    background-image: linear-gradient(to bottom, #F6E086 60%, #FDF7DF);
 }
 
 #bannerContainer img {
@@ -37,7 +37,7 @@
 }
 
 #searchBar {
-    margin: 50px;
+    margin: 50px 50px 0px 50px;
     border: none;
     border-radius: 20px;
     background-color: #cb9b52; 
@@ -100,6 +100,7 @@
     padding-top: 20px;
     border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid grey;
 }
 
 .card:hover {
