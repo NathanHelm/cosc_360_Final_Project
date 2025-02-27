@@ -11,6 +11,8 @@
     display: grid;
     grid-template-columns: 40% auto;
     background-color: #FAF1A8;
+    padding-top: 2%;
+    padding-bottom: 2%;
  }
 
  #productDetailsPage img {
@@ -22,4 +24,24 @@
     padding-top: 5%;
     padding-bottom: 5%;
     font-family:Arial, Helvetica, sans-serif;
+ }
+
+ #productSeller {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+
+ #productSeller h1 {
+    font-size: 2em;
+ }
+
+ #productSeller h2 {
+    font-size: 1.25em;
+ }
+
+ #productSeller img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
  }
