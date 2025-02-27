@@ -92,9 +92,16 @@
 
  /*Logo font*/
 
-@font-face {
+/* @font-face {
     font-family: "CustomLogoFont";
-    src: url("./fonts/BRUSHSTP.ttf") format("truetype");
+    src: url("fonts/BRUSHSTP.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
+} */
+
+@font-face {
+   font-family: "LogoFont";
+   src: url("/fonts/ProtestRevolution-Regular.ttf") format("truetype");
+   font-weight: normal;
+   font-style: normal;
 }
