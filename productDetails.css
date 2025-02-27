@@ -84,3 +84,17 @@
     border: 1px solid grey;
     border-radius: 10px;
  }
+
+ .productInfo input:focus {
+    outline: none;
+    border: 2px solid #246224;
+ }
+
+ /*Logo font*/
+
+@font-face {
+    font-family: "CustomLogoFont";
+    src: url("./fonts/BRUSHSTP.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}

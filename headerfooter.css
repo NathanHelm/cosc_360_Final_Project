@@ -100,3 +100,12 @@ footer a:hover {
     text-decoration: underline;
     cursor:pointer;
 }
+
+/*Logo font*/
+
+@font-face {
+    font-family: "CustomLogoFont";
+    src: url("./fonts/BRUSHSTP.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
