@@ -3,24 +3,25 @@
     <head>
         <meta charset="utf=8">
         <title>Home</title>
-        <link rel="stylesheet" href="../CSS/homeStyle.css">
-        <link rel="stylesheet" href="../CSS/headerfooter.css">
+        <link rel="stylesheet" href="../css/homeStyle.css">
+        <link rel="stylesheet" href="../css/headerfooter.css">
     </head>
-    <body>
+    <body id="home">
         <header>
             <nav>
                 
-                    <img src="../homeImages/homeIcon.png" alt="Home" width="25px" height="25px">
+                <a href="./home.html#home">
+                    <img src="../images/homeIcon.png" alt="Home" width="25px" height="25px">
+                </a>
 
                     <p class="logo">Mosaic</p>
 
                 <ul>
-                    <li class="basic"><a href="#here">Products</a></li>
-                    <li class="basic"><a href="">Sell</a></li>
+                    <li class="basic"><a href="#products">Products</a></li>
+                    <li class="basic"><a href="./createProduct.html">Sell</a></li>
                     <li class="basic"><a href="">Community</a></li>
-                    <li class="basic"><a href="">Terms</a></li>
-                    <li class="basic"><a href="">Contact</a></li>
-                    <li><a href=""><img src="../homeImages/cart.png" alt="cart" width="25px" height="25px"></a></li>
+                    <li class="basic"><a href="./contact.html">Contact</a></li>
+                    <li><a href=""><img src="../images/cart.png" alt="cart" width="25px" height="25px"></a></li>
                     <li><button id="signIn">Sign in</button></li>
                     <li><button id="register">Register</button></li>
                 </ul>
@@ -29,17 +30,17 @@
 
         <section id="bannerContainer">
 
-            <img src="../homeImages/banner1.png" alt="music artwork" id="banner1">
+            <img src="../images/banner1.png" alt="music artwork" id="banner1">
 
             <h1>art is everywhere</h1>
 
-            <img src="../homeImages/banner2.png" alt="van gogh" id="banner2">
+            <img src="../images/banner2.png" alt="van gogh" id="banner2">
 
             <h1>buy and sell it here</h1>
 
-            <img src="../homeImages/banner3.jpg" alt="fashion artwork" id="banner3">
+            <img src="../images/banner3.jpg" alt="fashion artwork" id="banner3">
 
-            <div id="here"> </div>
+            <div id="products"> </div>
 
             <div id="searchBar">
                 <input type="search" placeholder="Search">
@@ -68,15 +69,17 @@
 
         <section id="productsContainer">
 
-            <div class="card">
-                <img src="../homeImages/skirt.png" alt="skirt">
-                <div class="cardText">
-                    <h3><a>Vintage skirt</a></h3>
-                    <p>By <a>JaneDoe43</a></p>
-                    <p>$5.00</p>
-                    <button>Add to cart</button>
+                <div class="card">
+                    <a href="./productDetails.html">
+                        <img src="../images/skirt.png" alt="skirt">
+                    </a>
+                    <div class="cardText">
+                        <h3><a href="./productDetails.html">Vintage skirt</a></h3>
+                        <p>By <a>JaneDoe43</a></p>
+                        <p>$5.00</p>
+                        <button>Add to cart</button>
+                    </div>
                 </div>
-            </div>
 
         </section>
 
@@ -84,11 +87,11 @@
             <table>
                 <tr>
                     <td><a>About us</a></td>
-                    <td><a>Home</a></td>
+                    <td><a href="./home.html">Home</a></td>
                 </tr>
 
                 <tr>
-                    <td><a>Contact</a></td>
+                    <td><a href="./contact.html">Contact</a></td>
                     <td><a>Profile</a></td>
                 </tr>
 

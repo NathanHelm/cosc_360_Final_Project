@@ -83,11 +83,68 @@
     padding: 1%;
     border: 1px solid grey;
     border-radius: 10px;
+    width: 20%;
  }
 
  .productInfo input:focus {
     outline: none;
     border: 2px solid #246224;
+ }
+
+ #productReviews h1 {
+   margin: 1%;
+ }
+
+ .review {
+   margin: 2%;
+   margin-right: 20%;
+   border-top: 1px solid grey;
+   border-bottom: 1px solid grey;
+   padding: 2% 1%;
+ }
+
+ .review p {
+   margin: 1% 0%;
+ }
+
+ .stars img {
+   width: 2%;
+ }
+
+ .productReviewer {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+ }
+
+ .productReviewer p {
+   margin-left: 1%;
+ }
+
+ .productReviewer a:hover {
+   cursor: pointer;
+   text-decoration: underline;
+ }
+
+ .productReviewer img {
+   width: 2%;
+   border-radius: 50%;
+   border: 1px solid black;
+ }
+
+ #back {
+   background-color: #FAF1A8;
+   padding: 0%;
+   margin: 0%;
+ }
+
+ #backButton {
+   padding: 0.25% 0.75%;
+   margin: 1%;
+ }
+
+ #backButton:hover {
+   cursor:pointer;
  }
 
  /*Logo font*/
@@ -99,9 +156,3 @@
     font-style: normal;
 } */
 
-@font-face {
-   font-family: "LogoFont";
-   src: url("/fonts/ProtestRevolution-Regular.ttf") format("truetype");
-   font-weight: normal;
-   font-style: normal;
-}
