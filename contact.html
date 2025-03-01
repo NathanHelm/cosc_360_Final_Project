@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Create product</title>
-        <link rel="stylesheet" href="createProduct.css">
+        <title>Contact</title>
+        <link rel="stylesheet" href="contact.css">
         <link rel="stylesheet" href="headerfooter.css">
     </head>
     <body>
@@ -31,37 +31,21 @@
             <a href="./home.html#products"><button id="backButton">x</button></a>
         </section>
 
-        <section id="createAProduct">
-            <h1>Create a product</h1>
+        <section id="contactForm">
+            <h1>Contact us with questions or concerns</h1>
 
-            <form>
-                <div class="inputField">
-                    <label>Add a product name <span>*</span></label>
-                    <br>
-                    <input type="text" maxlength="50" id="productName" placeholder="Product name">
-                </div>
+            <br>
+            <label>Message <span>*</span></label>
+            <br>
+            <textarea maxlength="500" placeholder="Enter a message" name="message"></textarea>
 
-                <div class="inputField">
-                    <label>Product description <span>*</span></label>
-                    <br>
-                    <textarea id="desc" placeholder="Add a description" maxlength="500"></textarea>
-                </div>
+            <br>
 
-                <div class="inputField">
-                    <label>Price <span>*</span></label>
-                    <br>
-                   <label>$</label> <input type="number" min="0.00" max="10000.00" id="price" placeholder="0.00"/>
-
-                </div>
-
-                <div class="inputField"> 
-                    <label>Add an image <span>*</span></label>
-                    <br>
-                    <input type="file">
-                </div>
-
-                <button type="submit" id="submit">Create product</button>
-            </form>
+            <label>Email contact <span>*</span></label>
+            <br>
+            <input type="email" name="email" placeholder="example@email.com">
+            <br>
+            <button type="submit">Submit</button>
         </section>
 
         <footer>
