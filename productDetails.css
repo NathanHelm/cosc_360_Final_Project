@@ -83,6 +83,7 @@
     padding: 1%;
     border: 1px solid grey;
     border-radius: 10px;
+    width: 20%;
  }
 
  .productInfo input:focus {
@@ -99,9 +100,3 @@
     font-style: normal;
 } */
 
-@font-face {
-   font-family: "LogoFont";
-   src: url("/fonts/ProtestRevolution-Regular.ttf") format("truetype");
-   font-weight: normal;
-   font-style: normal;
-}
