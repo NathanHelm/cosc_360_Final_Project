@@ -132,6 +132,21 @@
    border: 1px solid black;
  }
 
+ #back {
+   background-color: #FAF1A8;
+   padding: 0%;
+   margin: 0%;
+ }
+
+ #backButton {
+   padding: 0.25% 0.75%;
+   margin: 1%;
+ }
+
+ #backButton:hover {
+   cursor:pointer;
+ }
+
  /*Logo font*/
 
 /* @font-face {
