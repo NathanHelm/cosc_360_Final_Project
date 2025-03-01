@@ -2,15 +2,15 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Contact</title>
-        <link rel="stylesheet" href="./css/contact.css">
-        <link rel="stylesheet" href="./css/headerfooter.css">
+        <title>Create product</title>
+        <link rel="stylesheet" href="../css/createProduct.css">
+        <link rel="stylesheet" href="../css/headerfooter.css">
     </head>
     <body>
         <header>
             <nav>
                 <a href="./home.html#home">
-                    <img src="./homeImages/homeIcon.png" alt="Home" width="25px" height="25px">
+                    <img src="../homeImages/homeIcon.png" alt="Home" width="25px" height="25px">
                 </a>
 
                 <p class="logo">Mosaic</p>
@@ -20,7 +20,7 @@
                     <li class="basic"><a href="./createProduct.html">Sell</a></li>
                     <li class="basic"><a href="">Community</a></li>
                     <li class="basic"><a href="./contact.html">Contact</a></li>
-                    <li><a href=""><img src="./homeImages/cart.png" alt="cart" width="25px" height="25px"></a></li>
+                    <li><a href=""><img src="../homeImages/cart.png" alt="cart" width="25px" height="25px"></a></li>
                     <li><button id="signIn">Sign in</button></li>
                     <li><button id="register">Register</button></li>
                 </ul>
@@ -31,24 +31,38 @@
             <a href="./home.html"><button id="backButton">x</button></a>
         </section>
 
-        <section id="contactForm">
-            <h1>Contact us with questions or concerns</h1>
+        <section id="createAProduct">
+            <h1>Create a product</h1>
 
             <form method="post"
             action="http://www.randyconnolly.com/tests/process.php"
             novalidate>
-                <br>
-                <label>Message <span>*</span></label>
-                <br>
-                <textarea maxlength="500" placeholder="Enter a message" name="message"></textarea>
+                <div class="inputField">
+                    <label>Add a product name <span>*</span></label>
+                    <br>
+                    <input type="text" maxlength="50" id="productName" placeholder="Product name">
+                </div>
 
-                <br>
+                <div class="inputField">
+                    <label>Product description <span>*</span></label>
+                    <br>
+                    <textarea id="desc" placeholder="Add a description" maxlength="500"></textarea>
+                </div>
 
-                <label>Email contact <span>*</span></label>
-                <br>
-                <input type="email" name="email" placeholder="example@email.com">
-                <br>
-                <button type="submit">Submit</button>
+                <div class="inputField">
+                    <label>Price <span>*</span></label>
+                    <br>
+                   <label>$</label> <input type="number" min="0.00" max="10000.00" id="price" placeholder="0.00"/>
+
+                </div>
+
+                <div class="inputField"> 
+                    <label>Add an image <span>*</span></label>
+                    <br>
+                    <input type="file">
+                </div>
+
+                <button type="submit" id="submit">Create product</button>
             </form>
         </section>
 
