@@ -44,16 +44,19 @@
     border-radius: 2px;
     border: 1px solid grey;
     height: 20px;
+    padding-left: 0.5%;
   }
 
   #desc {
     width: 20%;
     height: 80px;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5%;
   }
 
   #price {
     width: 8%;
+    padding-left: 0.25%;
   }
 
   #submit {
