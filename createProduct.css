@@ -20,4 +20,67 @@
 
   #createAProduct {
     background-color: #FAF1A8;
+    padding: 0% 2% 2% 3%;
+    font-family:Arial, Helvetica, sans-serif;
+    margin: auto;
   }
+
+  #createAProduct form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputField input {
+    width: 20%;
+    height: 20%;
+  }
+
+
+  #createAProduct .inputField {
+    margin: 1%;
+  }
+
+  #productName {
+    border-radius: 2px;
+    border: 1px solid grey;
+    height: 20px;
+  }
+
+  #desc {
+    width: 20%;
+    height: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #price {
+    width: 8%;
+  }
+
+  #submit {
+    width: 120px;
+    height: 30px;
+    margin: 1%;
+    border-radius: 5px;
+    border: none;
+    background-color: #6a862f;
+    color: white;
+  }
+
+  #submit:hover {
+    cursor: pointer;
+    background-color: #3f803f;
+  }
+
+  #createAProduct input:focus {
+    outline: none;
+    border: 2px solid #246224;
+ }
+
+ #createAProduct textarea:focus {
+    outline: none;
+    border: 2px solid #246224;
+ }
+
+ #createAProduct span {
+    color:red;
+ }

@@ -19,7 +19,6 @@
                     <li class="basic"><a href="./home.html#products">Products</a></li>
                     <li class="basic"><a href="./createProduct.html">Sell</a></li>
                     <li class="basic"><a href="">Community</a></li>
-                    <li class="basic"><a href="">Terms</a></li>
                     <li class="basic"><a href="">Contact</a></li>
                     <li><a href=""><img src="./homeImages/cart.png" alt="cart" width="25px" height="25px"></a></li>
                     <li><button id="signIn">Sign in</button></li>
@@ -36,23 +35,32 @@
             <h1>Create a product</h1>
 
             <form>
-                <label>Add a product name</label>
-                <input type="text">
+                <div class="inputField">
+                    <label>Add a product name <span>*</span></label>
+                    <br>
+                    <input type="text" maxlength="50" id="productName">
+                </div>
 
-                <br>
+                <div class="inputField">
+                    <label>Product description <span>*</span></label>
+                    <br>
+                    <textarea id="desc" placeholder="Add a description" maxlength="500"></textarea>
+                </div>
 
-                <label>Product description</label>
-                <input type="text">
+                <div class="inputField">
+                    <label>Price <span>*</span></label>
+                    <br>
+                   <label>$</label> <input type="number" min="0.00" max="10000.00" id="price"/>
 
-                <br>
+                </div>
 
-                <label>Price</label>
-                <input type="text">
+                <div class="inputField"> 
+                    <label>Add an image <span>*</span></label>
+                    <br>
+                    <input type="file">
+                </div>
 
-                <br>
-
-                <label>Add an image</label>
-                <input type="file">
+                <button type="submit" id="submit">Create product</button>
             </form>
         </section>
 
