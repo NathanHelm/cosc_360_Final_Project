@@ -49,6 +49,21 @@
     background-color: #3f803f;
   }
 
+  #contactForm #reset {
+    width: 5%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: #b54336;
+  }
+
+  #contactForm #reset:hover {
+    background-color: #912d22;
+  cursor: pointer;
+  }
+
   #contactForm span {
     color: red;
   }
