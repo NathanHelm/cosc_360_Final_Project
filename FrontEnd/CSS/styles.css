@@ -92,7 +92,7 @@ main{
     background-color: #F5F5F5;
 }
 
-.signup_box button {
+.submit {
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
@@ -100,7 +100,7 @@ main{
     background-color: #6a862f;
 }
 
-.signup_box button:hover {
+.submit:hover {
     cursor: pointer;
     background-color: #3f803f;
 }
