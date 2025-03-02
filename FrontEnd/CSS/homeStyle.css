@@ -104,7 +104,6 @@
 }
 
 .card:hover {
-    cursor: pointer;
     box-shadow:  6px 5px 20px 1px rgba(0,0,0,0.22);
 }
 
@@ -121,6 +120,10 @@
     /* width: 75%;
     height: 75%; */
     margin: auto;
+}
+
+.card img:hover {
+    cursor: pointer;
 }
 
 .cardText {
