@@ -91,11 +91,6 @@
  /*Input validation*/
 
  /*only applied to empty fields on attempted submission*/
-input.emptyField[required], select.emptyField[required] {
-  border-color: red;
-}
-
-/*only applied to empty fields on attempted submission*/
-textarea.emptyField[required], select.emptyField[required] {
+input.emptyField[required], textarea.emptyField[required] {
   border-color: red;
 }

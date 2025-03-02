@@ -36,7 +36,7 @@
 
             <form method="post"
             action="http://www.randyconnolly.com/tests/process.php"
-            novalidate>
+            novalidate id="createForm">
                 <div class="inputField">
                     <label>Add a product name <span>*</span></label>
                     <br>
@@ -62,7 +62,7 @@
                 <div class="inputField"> 
                     <label>Add an image <span>*</span></label>
                     <br>
-                    <input type="file">
+                    <input type="file" name="image" required>
                 </div>
 
                 <button type="submit" id="submit">Create product</button>
@@ -90,6 +90,8 @@
             <p id="copyright">&copy Copyright Site</p>
 
         </footer>
+
+        <script src="../Scripts/createProduct.js"></script>
 
     </body>
 </html>
