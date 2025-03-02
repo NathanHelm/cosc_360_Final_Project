@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+        //removes errors when user adds input
         req.addEventListener("input", () => {
             req.classList.remove("emptyField");
             
@@ -35,6 +36,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     })
+
+    form.addEventListener("reset", () => {
+        for (let req of reqs) {
+            req.classList.remove("emptyField"); // Remove the red border
+
+            // Remove any error message
+            const errorMessage = req.nextElementSibling;
+            if (errorMessage && errorMessage.classList.contains("error-message")) {
+                errorMessage.remove();
+            }
+        }
+    });
 
 
 })

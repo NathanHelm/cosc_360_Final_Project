@@ -88,6 +88,21 @@
     color:red;
  }
 
+ #reset {
+    width: 120px;
+    height: 30px;
+    margin: 1%;
+    border-radius: 5px;
+    border: none;
+    background-color: #b54336;
+    color: white;
+ }
+
+ #reset:hover {
+  background-color: #912d22;
+  cursor: pointer;
+ }
+
  /*Input validation*/
 
  /*only applied to empty fields on attempted submission*/
