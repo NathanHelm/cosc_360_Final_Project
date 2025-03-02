@@ -36,34 +36,40 @@
 
             <form method="post"
             action="http://www.randyconnolly.com/tests/process.php"
-            novalidate>
+            novalidate id="createForm">
                 <div class="inputField">
                     <label>Add a product name <span>*</span></label>
                     <br>
-                    <input type="text" maxlength="50" id="productName" placeholder="Product name">
+                    <input type="text" maxlength="50" id="productName" placeholder="Product name"
+                    name="productName" required>
                 </div>
 
                 <div class="inputField">
                     <label>Product description <span>*</span></label>
                     <br>
-                    <textarea id="desc" placeholder="Add a description" maxlength="500"></textarea>
+                    <textarea id="desc" placeholder="Add a description" maxlength="500" 
+                    name="desc" required></textarea>
                 </div>
 
                 <div class="inputField">
                     <label>Price <span>*</span></label>
                     <br>
-                   <label>$</label> <input type="number" min="0.00" max="10000.00" id="price" placeholder="0.00"/>
+                   <label>$</label> <input type="number" min="0.00" max="10000.00" id="price" placeholder="0.00"
+                   name="price" required/>
 
                 </div>
 
                 <div class="inputField"> 
                     <label>Add an image <span>*</span></label>
                     <br>
-                    <input type="file">
+                    <input type="file" name="image" required>
                 </div>
 
-                <button type="submit" id="submit">Create product</button>
+                <!-- <button type="submit" id="submit">Create product</button>
+                <button type="reset" id="reset">Clear</button> -->
             </form>
+            <button type="reset" id="reset" form="createForm">Clear</button>
+            <button type="submit" id="submit" form="createForm">Create product</button>
         </section>
 
         <footer>
@@ -87,6 +93,8 @@
             <p id="copyright">&copy Copyright Site</p>
 
         </footer>
+
+        <script src="../Scripts/createProduct.js"></script>
 
     </body>
 </html>
