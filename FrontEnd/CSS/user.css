@@ -12,10 +12,12 @@ body {
     height: 100%;
     width: 100%;
 }
-header{
+header, footer{
+    margin-top: 3%;
     width: 95%;
     margin-left: -3%;
 }
+
 
 .profile-container {
     max-width: 400px;
