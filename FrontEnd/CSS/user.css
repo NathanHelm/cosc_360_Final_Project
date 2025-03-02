@@ -2,29 +2,26 @@
 /* User Profile Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background: #FAF1A8;
     margin: 0;
-    padding: 20px;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column; */
     height: 100%;
     width: 100%;
 }
-header{
-    width: 95%;
-    margin-left: -3%;
-}
 
 .profile-container {
+    margin: auto;
     max-width: 400px;
-    background: white;
-    padding: 20px;
+    background: #fff7e8;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 80px; /* Adjust based on header height */
+    margin-top: 60px; /* Adjust based on header height */
+    margin-bottom: 60px;
+    padding: 20px 10px;
 }
 
 .profile-header {
@@ -62,19 +59,19 @@ header{
 }
 
 .edit-btn {
-    background-color: #007bff;
+    background-color: #005abf;
     color: white;
 }
 
 .edit-btn:hover {
-    background-color: #0056b3;
+    background-color: #00499b;
 }
 
 .logout-btn {
-    background-color: red;
+    background-color: #C70039;
     color: white;
 }
 
 .logout-btn:hover {
-    background-color: darkred;
+    background-color: #9d002d;
 }
