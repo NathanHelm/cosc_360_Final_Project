@@ -4,7 +4,7 @@
 }
 body{
     background-color: black;
-    max-width: 1220px;
+    max-width: 100%;
 }
 nav .flexbox_nav {
     display: flex;
@@ -22,6 +22,10 @@ nav .flexbox_child:hover{
     border-style: none;
 }
 
+main {
+    margin: none !important;
+}
+
 main .flexbox_main{
     display: flex;
     flex-direction: row;
@@ -35,7 +39,7 @@ main figure img {
 main figure div{
     width: 300px;
     height: 700px;
-    background-color: var(--mainYellowColor);
+    background-color: #FAF1A8;
 }
 main figure{
     margin: 0px;
@@ -52,9 +56,8 @@ main figure{
 }
 .signup_box
 {
-   
+   padding: 20px;
     background-color: #F5F5F5;
-    padding: 10px;
     border-radius: 10px;
 }
 
@@ -82,9 +85,28 @@ nav {
 
     background-color: var(--mainYellowColor);
     padding: 10px;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
    
 }
 main{
     background-color: #F5F5F5;
+}
+
+.signup_box button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #6a862f;
+}
+
+.signup_box button:hover {
+    cursor: pointer;
+    background-color: #3f803f;
+}
+
+.signup_box input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
 }
