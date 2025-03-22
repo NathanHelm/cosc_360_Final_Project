@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 22, 2025 at 10:22 PM
+-- Generation Time: Mar 22, 2025 at 10:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -32,7 +32,8 @@ CREATE TABLE `user` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `user_image` varchar(255) NOT NULL,
-  `user_type` varchar(1) NOT NULL
+  `role` enum('user','admin') NOT NULL DEFAULT 'user',
+  `isActive` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
