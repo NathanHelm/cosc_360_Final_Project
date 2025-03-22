@@ -17,6 +17,9 @@
 
         if($res = $stmt->fetch()){
             //start a session here;
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['name'] = $res['name'];
             if(password_verify($password, $res['password'])){
                 header("Location: ./home.html");
             } else {
