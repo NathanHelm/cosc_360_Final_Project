@@ -2,15 +2,15 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    /* background-color: #f2e1c3; */
+    background: linear-gradient(to bottom right, #f2e1c3, #f1cfa2);
     margin: 0;
-    padding: 20px;
 }
 
 
 .cart-container {
     max-width: 600px;
-    background-color: #F6E086;
+    background-color: #fff7e8;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -74,6 +74,7 @@ input[type="number"] {
     cursor: pointer;
     border-radius: 5px;
     width: 100%;
+    margin-top: 10px;
 }
 
 .checkout-btn:hover {
