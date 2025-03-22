@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="../CSS/headerfooter.css">
 </head>
-<script>
-   
+<script src="../JAVASCRIPT/signupvalidation.js">
 </script>
 <body>
   <header>
@@ -44,14 +43,25 @@
       
                 <!--when you click sumbit, you are taken to home page (and you are signed up)-->
                 <form method="get" action="./home.html" class="flex_column signup_box">
-                    <p>Email
+                    <p>
+                      Name
                     </p>
-                    <input type="input" placeholder="Enter email here." required/>
+                    <input type="input" placeholder="Enter username here." id="username" required/>
+                    <br>
+                    <p>
+                      Email
+                    </p>
+                    <input type="input" placeholder="Enter email here." id="gmail" required/>
                     <br>
                     <p>Password</p>
-                    <input type="input" placeholder="Enter password here." required/>
+                    <input type="input" placeholder="Enter password here." id="password" required/>
+                    <br>
+                    <p>
+                      user error message
+                    </p>
                     <br>
                     <button type="submit" class="submit">Sign up</button>
+                   
                 </form>
            
         </div>
