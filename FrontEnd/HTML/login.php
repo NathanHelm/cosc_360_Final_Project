@@ -20,6 +20,7 @@
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['name'] = $res['name'];
+            $_SESSION['user_image'] = $res['user_image'];
             if(password_verify($password, $res['password'])){
                 header("Location: ./home.html");
             } else {
