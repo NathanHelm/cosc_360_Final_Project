@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Product details</title>
+        <link rel="stylesheet" href="../css/productDetails.css">
+        <link rel="stylesheet" href="../css/headerfooter.css">
+    </head>
+
+    <body>
+    
+        <header>
+            <nav>
+                <a href="./home.html#home">
+                    <img src="../images/homeIcon.png" alt="Home" width="25px" height="25px">
+                </a>
+
+                <p class="logo">Mosaic</p>
+
+                <ul>
+                    <li class="basic"><a href="./home.html#products">Products</a></li>
+                    <li class="basic"><a href="./createProduct.html">Sell</a></li>
+                    <li class="basic"><a href="">Community</a></li>
+                    <li class="basic"><a href="">Contact</a></li>
+                    <li><a href=""><img src="../images/cart.png" alt="cart" width="25px" height="25px"></a></li>
+                    <li><button id="signIn">Sign in</button></li>
+                    <li><button id="register">Register</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="back">
+            <a href="./home.html#products"><button id="backButton">x</button></a>
+        </section>
+
+        <section id="productDetailsPage">
+            
+
+            <div class="productImageContainer">
+                 <img src="../images/skirt.png" alt="product image">
+            </div>
+            <div class="productInfo">
+                <h1>Vintage skirt</h1>
+                <div id="productSeller">
+                    <h2>By <a>JaneDoe43</a></h2>
+                    <img src="../images/JaneDoe43_PFP.jpg" alt="Profile picture">
+                </div>
+                <h3>$5.00</h3>
+                <p>Vintage thrifted skirt, cool plaid pattern. <br> 100% cotton, great condition.</p>
+
+                <form>
+                    <label for="quantity">Quantity <span>*</span></label>
+                    <br>
+                    <!-- <input type="text" placeholder="Enter a quantity" name"quantity"> -->
+                     <input type="number" placeholder="Enter a quantiy" min="0" max="100" name="quantity"/>
+                </form>
+
+                <button>Add to cart</button>
+            </div>
+        </section>
+
+        <section id="productReviews">
+            <hr>
+            <h1> 1 review&#40s&#41</h1>
+
+            <div class="review">
+                <div class="stars">
+                    <img src="../images/fullStar.png">
+                    <img src="../images/fullStar.png">
+                    <img src="../images/fullStar.png">
+                    <img src="../images/fullStar.png">
+                    <img src="../images/emptyStar.png">
+                </div>
+                <p>Very cool skirt, I enjoy this product.</p>
+                <div class="productReviewer">
+                    <img src="../images/blankProfilePic.png" alt="profile pic">
+                    <p><a>JohnSmith87</a></p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <table>
+                <tr>
+                    <td><a>About us</a></td>
+                    <td><a href="./home.html">Home</a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="./contact.html">Contact</a></td>
+                    <td><a>Profile</a></td>
+                </tr>
+
+                <tr>
+                    <td><a>Terms & Conditions</a></td>
+                    <td><a>Community</a></td>
+                </tr>
+            </table>
+
+            <p id="copyright">&copy Copyright Site</p>
+
+        </footer>
+
+
+    </body>
+</html>
