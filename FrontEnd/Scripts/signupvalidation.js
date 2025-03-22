@@ -18,6 +18,7 @@ let gmail = document.getElementById("gmail").textContent();
 }
 
 let user;
+
 GetUserContents();
 
 
