@@ -24,7 +24,7 @@
             <li class="basic"><a href="./createProduct.html">Sell</a></li>
             <li class="basic"><a href="./aboutUs.html">About us</a></li>
             <li class="basic"><a href="./contact.html">Contact</a></li>
-            <li><a href=""><img src="../Images/cart.png" alt="cart" width="25px" height="25px"></a></li>
+            <li><a href="./cart.html"><img src="../Images/cart.png" alt="cart" width="25px" height="25px"></a></li>
             <li><a href="./login.html"><button id="signIn">Sign in</button></a></li>
             <li><a href="./signup.html"><button id="register">Register</button></a></li>
         </ul>
@@ -43,13 +43,13 @@
             
       
                 <!--when you click sumbit, you are taken to home page (and you are signed up)-->
-                <form method="get" action="./home.html" class="flex_column signup_box">
-                    <p>Email
+                <form method="POST" action="login.php" class="flex_column signup_box">
+                    <p>Username
                     </p>
-                    <input type="input" placeholder="enter email here." required/>
+                    <input name="username" type="input" placeholder="enter username here." required/>
                     <br>
                     <p>Password</p>
-                    <input type="input" placeholder="enter password here." required/>
+                    <input name="password" type="input" placeholder="enter password here." required/>
                     <br>
                     <submit>
                         <input type="submit" value = "done"/>
