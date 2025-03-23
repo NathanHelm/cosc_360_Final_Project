@@ -1,48 +1,89 @@
-<?php 
-    require_once 'config.php';
-    
-    try{
-        $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="../CSS/headerfooter.css">
+</head>
+<script>
+   
+</script>
+<body>
+  <header>
+    <nav>
+        <a href="./home.html#home">
+            <img src="../Images/homeIcon.png" alt="Home" width="25px" height="25px">
+        </a>
 
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        <p class="logo">Mosaic</p>
 
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        <ul>
+            <li class="basic"><a href="./home.html#products">Products</a></li>
+            <li class="basic"><a href="./createProduct.html">Sell</a></li>
+            <li class="basic"><a href="./aboutUs.html">About us</a></li>
+            <li class="basic"><a href="./contact.html">Contact</a></li>
+            <li><a href="./cart.html"><img src="../Images/cart.png" alt="cart" width="25px" height="25px"></a></li>
+            <li><a href="./login.php"><button id="signIn">Sign in</button></a></li>
+            <li><a href="./signup.html"><button id="register">Register</button></a></li>
+        </ul>
+    </nav>
+</header>
 
-        $sql = "SELECT * FROM users WHERE username = :username";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':username', $username);
-        $stmt->execute();
+   <main>
+     <div class="flexbox_main">
+     <figure class="flexbox_child">
+       <img src="../Images/website_mockup_ecomerce/clothing items/shirt_cover.jpg">
+     </figure>
 
-        if($res = $stmt->fetch()){
-            //start a session here;
-            if (password_verify($password, $res['password'])) {
-                session_start();
-                $_SESSION['username'] = $res['username'];
-                $_SESSION['name'] = $res['name'] ?? ''; // fallback if null
-                $_SESSION['user_image'] = $res['user_image'];
-                $_SESSION['role'] = $res['role'];
-                $_SESSION['email'] = $res['email'];
-                $_SESSION['isActive'] = $res['is_active'];
-                header("Location: ./home.html");
-                exit;
-            } else {
-                echo "Invalid password";
-                sleep(2);
-                header("Location: ./login.html");
-                exit;
-            }
+     <figure class="flexbox_child">
+        <div class="flex_column">
+            <h1 class="signup_title">login</h1>
+            
+      
+                <!--when you click sumbit, you are taken to home page (and you are signed up)-->
+                <form method="POST" action="login_process.php" class="flex_column signup_box">
+                    <p>Username
+                    </p>
+                    <input name="username" type="input" placeholder="enter username here." required/>
+                    <br>
+                    <p>Password</p>
+                    <input name="password" type="input" placeholder="enter password here." required/>
+                    <br>
+                    <button type="submit" class="submit">Log in</button>
+                </form>
+           
+        </div>
+      </figure>
 
-        } else {
-            echo "Invalid username";
-            sleep(2);
-            header("Location: ./home.html");
-            exit;
-        }
-    }catch(PDOException $e){
-        echo "Error: " . $e->getMessage();
-        sleep(2);
-        header("Location: ./home.html");
-        exit;
-    }
-?>
+      <figure class="flexbox_child">
+        <img src="../Images/website_mockup_ecomerce/clothing items/art.jpg">
+      </figure>
+    </div>
+
+    </main>
+    <footer>
+      <table>
+          <tr>
+              <td><a href="./aboutUs.html">About us</a></td>
+              <td><a href="./home.html">Home</a></td>
+          </tr>
+
+          <tr>
+              <td><a href="./contact.html">Contact</a></td>
+              <td><a href="./userProfile.html">Profile</a></td>
+          </tr>
+
+          <tr>
+              <td><a>Terms & Conditions</a></td>
+          </tr>
+      </table>
+
+      <p id="copyright">&copy Copyright Site</p>
+
+  </footer>
+
+</body>
+</html>
