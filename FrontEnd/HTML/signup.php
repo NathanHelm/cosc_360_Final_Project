@@ -59,7 +59,7 @@ session_start();
                 <form method="post" action="./signup_process.php" class="flex_column signup_box">
                     <p>email
                     </p>
-                    <input id="email" name="email" type="email" placeholder="enter name here." required/>
+                    <input id="email" name="email" type="email" placeholder="enter email here." required/>
                     <br>
                     <p>User Name
                     </p>
@@ -99,7 +99,7 @@ session_start();
 
           <tr>
               <td><a href="./contact.html">Contact</a></td>
-              <td><a href="./userProfile.html">Profile</a></td>
+              <td><a href="./profile.php">Profile</a></td>
           </tr>
 
           <tr>

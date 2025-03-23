@@ -13,7 +13,7 @@ try {
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username LIKE ? OR email LIKE ?");
+    $stmt = $pdo->prepare("SELECT * FROM user WHERE username LIKE ? OR email LIKE ?");
     $stmt->execute([$search, $search]);
     $users = $stmt->fetchAll();
 
@@ -135,7 +135,7 @@ try {
         </tr>
         <tr>
             <td><a href="./contact.html">Contact</a></td>
-            <td><a href="./userProfile.html">Profile</a></td>
+            <td><a href="./profile.php">Profile</a></td>
         </tr>
         <tr>
             <td><a>Terms & Conditions</a></td>

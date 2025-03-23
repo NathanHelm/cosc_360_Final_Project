@@ -9,24 +9,36 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM users WHERE username = :username";
+        $sql = "SELECT * FROM user WHERE username = ?";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':username', $username);
+        $stmt->bindValue(1, $username);
         $stmt->execute();
+        
 
         if($res = $stmt->fetch()){
-            //start a session here;
-            if (password_verify($password, $res['password'])) {
-                session_start();
+            session_start();
+           
+            if (password_verify($password, $res['password']) || $password == $res['password']) {
+                
                 $_SESSION['username'] = $res['username'];
                 $_SESSION['name'] = $res['name'] ?? ''; // fallback if null
                 $_SESSION['user_image'] = $res['user_image'];
                 $_SESSION['role'] = $res['role'];
                 $_SESSION['email'] = $res['email'];
                 $_SESSION['isActive'] = $res['is_active'];
-                header("Location: ./home.html");
-                exit;
+
+                if ($_SESSION['role'] == 'admin') {
+                    $_SESSION['isActive'] = 1;
+                    header("Location: ./admin.php");
+                    exit;
+                } else {
+                    header("Location: ./home.html");
+                    exit;
+                }
+                
+                
             } else {
+                
                 echo "Invalid password";
                 sleep(2);
                 header("Location: ./login.html");
@@ -34,16 +46,18 @@
             }
 
         } else {
+           
             echo "Invalid username";
             sleep(2);
-            header("Location: ./home.html");
+            header("Location: ./cart.html");
             exit;
         }
-        pdo = null;
+        
     }catch(PDOException $e){
+        
         echo "Error: " . $e->getMessage();
         sleep(2);
-        header("Location: ./home.html");
+        header("Location: ./signup.html");
         exit;
     }
 ?>

@@ -21,50 +21,78 @@
                 <li class="basic"><a href="./aboutUs.html">About us</a></li>
                 <li class="basic"><a href="./contact.html">Contact</a></li>
                 <li><a href="./cart.html"><img src="../Images/cart.png" alt="cart" width="25px" height="25px"></a></li>
-                <li><a href="./login.php"><button id="signIn">Sign in</button></a></li>
-                <li><a href="./signup.html"><button id="register">Register</button></a></li>
+                <?php if (isset($_SESSION['username'])): ?>
+            <li>
+             <form action="logout.php" method="POST" style="display:inline;">
+            <button type="submit" id="signOut">Log out</button>
+            </form>
+            </li>
+            <?php else: ?>
+            <li><a href="./login.html"><button id="signIn">Sign in</button></a></li>
+            <li><a href="./signup.html"><button id="register">Register</button></a></li>
+            <?php endif; ?>
             </ul>
         </nav>
     </header>
-       
+
     <div class="profile-container">
         <div class="profile-header">
             <img src="../Images/blankProfilePic.png" alt="User Avatar" class="avatar">
             <h2>John Doe</h2>
             <p>@johndoe</p>
         </div>
-        <!-- <div class="profile-details">
-            <h3>Profile Information</h3>
-            <p><strong>Email:</strong> johndoe@example.com</p>
-            <p><strong>Phone:</strong> +123 456 7890</p>
-            <p><strong>Address:</strong> 123 Main Street, City, Country</p>
-        </div> -->
+
         <div class="profile-actions">
             <button class="edit-btn">Edit Profile</button>
-            <button class="logout-btn">Logout</button>
+            <form action="logout.php" method="POST" style="display:inline;">
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        </div>
+
+        <div class="edit-profile-form" style="display:none; margin-top: 20px;">
+            <h3>Edit Profile</h3>
+            <form action="updateProfile.php" method="POST">
+                <label for="username">Username:</label><br>
+                <input type="text" name="username" id="username" value="John Doe" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" value="johndoe@example.com" required><br><br>
+
+                <label for="password">New Password:</label><br>
+                <input type="password" name="password" id="password"><br><br>
+
+                <button type="submit">Save Changes</button>
+            </form>
         </div>
     </div>
+
     <footer>
         <table>
             <tr>
                 <td><a href="./aboutUs.html">About us</a></td>
                 <td><a href="./home.html">Home</a></td>
             </tr>
-    
+
             <tr>
                 <td><a href="./contact.html">Contact</a></td>
-                <td><a href="./userProfile.html">Profile</a></td>
+                <td><a href="./profile.php">Profile</a></td>
             </tr>
-    
+
             <tr>
                 <td><a>Terms & Conditions</a></td>
             </tr>
         </table>
-    
-        <p id="copyright">&copy Copyright Site</p>
-    
-    </footer>
-    
-</body>
 
+        <p id="copyright">&copy Copyright Site</p>
+    </footer>
+
+    <script>
+        const editBtn = document.querySelector('.edit-btn');
+        const editForm = document.querySelector('.edit-profile-form');
+
+        editBtn.addEventListener('click', () => {
+            editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+</body>
 </html>
