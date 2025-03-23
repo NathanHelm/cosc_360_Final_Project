@@ -39,7 +39,7 @@ session_start();
             <li class="basic"><a href="./contact.html">Contact</a></li>
             <li><a href="./cart.html"><img src="../Images/cart.png" alt="cart" width="25px" height="25px"></a></li>
             <li><a href="./login.php"><button id="signIn">Sign in</button></a></li>
-            <li><a href="./signup.html"><button id="register">Register</button></a></li>
+            <li><a href="./signup.php"><button id="register">Register</button></a></li>
         </ul>
     </nav>
 </header>

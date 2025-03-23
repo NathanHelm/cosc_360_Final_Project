@@ -63,7 +63,7 @@
         
         echo "Error: " . $e->getMessage();
         sleep(2);
-        header("Location: ./signup.html");
+        header("Location: ./signup.php");
         exit;
     }
 ?>
