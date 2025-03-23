@@ -7,6 +7,12 @@
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
+
+/*
+I've updated the sql dump-- now there is a varchar column : email 
+-nathan
+*/
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -63,6 +69,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 

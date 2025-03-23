@@ -1,3 +1,17 @@
+<?php 
+$duplication = $_GET["duplicate"];
+$username = $_SESSION["username"];
+if(isset($duplication))
+{
+  if($duplication == "true")
+  {
+    echo "<script> alert(\"username $username already taken \" ); </script>";
+  }
+  
+}
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,22 +56,22 @@
             
       
                 <!--when you click sumbit, you are taken to home page (and you are signed up)-->
-                <form method="get" action="./home.html" class="flex_column signup_box">
+                <form method="post" action="./signup_process.php" class="flex_column signup_box">
                     <p>email
                     </p>
-                    <input id="email" type="email" placeholder="enter email here." required/>
+                    <input id="email" name="email" type="email" placeholder="enter email here." required/>
                     <br>
                     <p>User Name
                     </p>
-                    <input id="username" type="input" placeholder="enter user-name here." required/>
+                    <input id="username" name="username" type="input" placeholder="enter user-name here." required/>
                     <br>
                     <p>Password</p>
-                    <input id="password" type="input" placeholder="enter password here." required/>
+                    <input id="password" name="password" type="input" placeholder="enter password here." required/>
                     <br>
                     <p>Profile Image
                         
                     </p>
-                    <input id="image" type="file" name="user_image" accept="image/*" required />
+                    <input id="user_image" type="file" name="user_image" accept="image/*" required />
                     <br>
                     <p>
                       user error message
