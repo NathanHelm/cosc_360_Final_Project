@@ -135,7 +135,7 @@ try {
         </tr>
         <tr>
             <td><a href="./contact.html">Contact</a></td>
-            <td><a href="./userProfile.html">Profile</a></td>
+            <td><a href="./profile.php">Profile</a></td>
         </tr>
         <tr>
             <td><a>Terms & Conditions</a></td>

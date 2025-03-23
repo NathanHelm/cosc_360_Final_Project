@@ -28,6 +28,7 @@
                 $_SESSION['isActive'] = $res['is_active'];
 
                 if ($_SESSION['role'] == 'admin') {
+                    $_SESSION['isActive'] = 1;
                     header("Location: ./admin.php");
                     exit;
                 } else {
