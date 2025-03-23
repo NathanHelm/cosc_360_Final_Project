@@ -12,7 +12,7 @@ try{
     $userImage = $_POST['user_image'];
     $email = $_POST['email'];
 
-    //check for duplicate password
+    //check for duplicate username
     if(!isset($username) || !isset($password) || !isset($email) || !isset($userImage))
     {
         echo "reading null values";
@@ -56,12 +56,13 @@ try{
     $_SESSION['email'] = $email;
     $_SESSION['user_image'] = $userImage;
 
-    header("location: home.html");
+    header("location: profile.php");
     $pdo = null;
 }
 catch(PDOException $e)
 {
-    $e->getMessage();
+    echo "Database error: " . $e->getMessage();
+    exit();
 }
 
 function IsDuplicateUsername($rowCount)

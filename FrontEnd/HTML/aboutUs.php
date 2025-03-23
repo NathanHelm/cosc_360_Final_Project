@@ -18,11 +18,19 @@
                 <ul>
                     <li class="basic"><a href="./home.html#products">Products</a></li>
                     <li class="basic"><a href="./createProduct.html">Sell</a></li>
-                    <li class="basic"><a href="./aboutUs.html">About us</a></li>
+                    <li class="basic"><a href="./aboutUs.php">About us</a></li>
                     <li class="basic"><a href="./contact.html">Contact</a></li>
                     <li><a href="./cart.html"><img src="../Images/cart.png" alt="cart" width="25px" height="25px"></a></li>
-                    <li><a href="./login.php"><button id="signIn">Sign in</button></a></li>
-                    <li><a href="./signup.html"><button id="register">Register</button></a></li>
+                    <?php if (isset($_SESSION['username'])): ?>
+            <li>
+            <form action="logout.php" method="POST" style="display:inline;">
+                <button type="submit" id="signOut">Log out</button>
+            </form>
+    </li>
+        <?php else: ?>
+            <li><a href="./login.html"><button id="signIn">Sign in</button></a></li>
+            <li><a href="./signup.php"><button id="register">Register</button></a></li>
+        <?php endif; ?>
                 </ul>
             </nav>
         </header>
@@ -44,7 +52,7 @@
         <footer>
             <table>
                 <tr>
-                    <td><a href="./aboutUs.html">About us</a></td>
+                    <td><a href="./aboutUs.php">About us</a></td>
                     <td><a href="./home.html">Home</a></td>
                 </tr>
 
