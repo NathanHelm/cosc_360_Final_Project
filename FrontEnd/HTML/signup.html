@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="../CSS/headerfooter.css">
 </head>
-<script src="../JAVASCRIPT/signupvalidation.js">
+<script type="module" src="../Scripts/signupvalidation.js">
 </script>
 <body>
   <header>
@@ -42,7 +42,7 @@
             
       
                 <!--when you click sumbit, you are taken to home page (and you are signed up)-->
-                <form method="get" action="./home.html" class="flex_column signup_box" id="signupform">
+                <form method="get" action="./home.html" class="flex_column signup_box">
                     <p>email
                     </p>
                     <input id="email" type="email" placeholder="enter name here." required/>
@@ -63,7 +63,7 @@
                       user error message
                     </p>
                     <br>
-                    <button type="submit" class="submit">Sign up</button>
+                    <button type="submit" class="submit" id="signupbutton">Sign up</button>
                    
                 </form>
            

@@ -38,6 +38,7 @@ test("test email", function(){
 });
 test("test password", function(){
     //at least one uppercase, one special character, and one digit.
+    //all tests pass!
     expect(IsValidatePassword("Aaa90*")).toBe(true);
     expect(IsValidatePassword("%11PP*")).toBe(true);
     
