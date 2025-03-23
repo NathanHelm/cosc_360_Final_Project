@@ -13,7 +13,7 @@ try {
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username LIKE ? OR email LIKE ?");
+    $stmt = $pdo->prepare("SELECT * FROM user WHERE username LIKE ? OR email LIKE ?");
     $stmt->execute([$search, $search]);
     $users = $stmt->fetchAll();
 
