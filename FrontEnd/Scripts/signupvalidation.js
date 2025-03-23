@@ -1,10 +1,34 @@
 console.log("connected to signup validation!");
 
-const form = document.querySelector("button");
 
-let pw = document.getElementById("password").textContent();
-let username = document.getElementById("username").textContent();
-let gmail = document.getElementById("gmail").textContent();
+
+
+const maxUsernameLength = 10;
+const maxPwLength = 15; /* also, one special character, one uppercase, one number */
+
+
+const userRegex = new RegExp(`^(?!.*  )[a-zA-Z0-9 ]{2,${maxUsernameLength}}$`); //no special characters for usernames. length between 2- maxusernamelength also no double spaces
+const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{4,15}$/ //; //at least one uppercase, one special character, and one digit.
+const gmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ //email verification
+let pwText, userNameText, emailText;
+
+let pw = document.getElementById("password");
+
+if(pw)
+{
+    pwText = pw.textContent;
+}
+let username = document.getElementById("username");
+if(username)
+{
+   userNameText = username.textContent;
+}
+let email = document.getElementById("email");
+if(email)
+{
+    emailText = email.textContent;
+}
+const form = document.getElementById("signupform");
 
  class User{
 
@@ -17,40 +41,85 @@ let gmail = document.getElementById("gmail").textContent();
 
 }
 
+
+
 let user;
 
 GetUserContents();
 
+if(form)
+{
+    form.addEventListener("click", ()=>{
+        
+        if(!IsValidateGmail(email)){
+            ShowAlert("gmail error: please enter a valid email."); 
+            return;
+        }
+        
+        if(!IsValidatePassword(password)){
+            ShowAlert("password error: 1) at least one uppercase, one special character, and one digit. 2) must be larger than 8 and less than 15");
+            return;
+        }
+        
+        if(!IsValidateUsername(username)){
+            ShowAlert("username error: 1) can't have 2 consecutive spaces. \n2) no special characters \n3) username must be longer than 2.");
+            return;
+        }
+        //you are taken home. 
 
-form.addEventListener("click", ()=>{
-    
-    ServerValidationUsername();
-    
-    ServerValidationGmail();
-    
-    ServerValidationPassword();
+    });
+}
 
-})
 
-function ServerValidationUsername(user)
+function IsValidateUsername(user)
 {
    if(user == null)
    {
-    console.log("id not found? ");
+    return false;
    }
-   else if(user == "")
+   if(user == "")
    {
-    
+    return false;
+   }
+   if(!user.match(userRegex))
+   {
+    return false;
    }
 
-}
-function ServerValidationGmail(gmail)
-{
+   return true;
 
 }
-function ServerValidationPassword(pw)
+
+function IsValidateGmail(gmail)
 {
-   
+    if(gmail == null)
+    {
+        return false;
+    }
+    if(gmail == "")
+    {
+        return false;
+    }
+    if(!gmail.match(gmailRegex))
+    {
+        return false;
+    }
+    return true;
+}
+function IsValidatePassword(pw)
+{
+   if(pw == null)
+   {
+    return false;
+   }
+   if(pw == "")
+   {
+    return false;
+   }
+   if(!pw.match(passwordRegex)){
+    return false;
+   }
+   return true;
 }
 function GetUserContents(username, gmail, pw){
     user = new User(username, gmail, pw);
@@ -59,3 +128,4 @@ function ShowAlert(errormessage)
 {
     alert(errormessage);
 }
+export {IsValidateGmail, IsValidateUsername, IsValidatePassword};
