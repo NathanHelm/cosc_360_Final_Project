@@ -1,3 +1,5 @@
+@import url("headerfooter.css");
+
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #f5f7fa;
@@ -92,3 +94,5 @@ body {
   .status.inactive {
     color: #e74c3c;
   }
+
+  

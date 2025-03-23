@@ -1,9 +1,27 @@
 <?php
-  session_start();
-  if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
+ session_start(); // Uncomment if you want session protection
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: login.html");
     exit;
-  }
+}
+
+require_once 'config.php';
+
+$search = isset($_GET['search']) ? '%' . $_GET['search'] . '%' : '%';
+
+try {
+    $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username LIKE ? OR email LIKE ?");
+    $stmt->execute([$search, $search]);
+    $users = $stmt->fetchAll();
+
+    $posts = $pdo->query("SELECT * FROM products ORDER BY price DESC")->fetchAll();
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,78 +32,108 @@
   <link rel="stylesheet" href="../CSS/admin.css">
 </head>
 <body>
+<header>
+    <nav>
+        <a href="./home.html#home">
+            <img src="../Images/homeIcon.png" alt="Home" width="25px" height="25px">
+        </a>
+        <p class="logo">Mosaic</p>
+        <ul>
+            <li class="basic"><a href="./home.html#products">Products</a></li>
+            <li class="basic"><a href="./createProduct.html">Sell</a></li>
+            <li class="basic"><a href="./aboutUs.html">About us</a></li>
+            <li class="basic"><a href="./contact.html">Contact</a></li>
+            <li><a href="./cart.html"><img src="../Images/cart.png" alt="cart" width="25px" height="25px"></a></li>
+            <li><a href="./login.html"><button id="signIn">Sign in</button></a></li>
+            <li><a href="./signup.html"><button id="register">Register</button></a></li>
+        </ul>
+    </nav>
+</header>
 
-  <h2>Admin Dashboard</h2>
+<h2>Admin Dashboard</h2>
 
-  <div class="section">
-    <h3>Search Users</h3>
-    <form class="search-form">
-      <input type="text" name="search" placeholder="Search by username or email" />
-      <button type="submit">Search</button>
-    </form>
+<div class="section">
+  <h3>Search Users</h3>
+  <form class="search-form" method="GET">
+    <input type="text" name="search" placeholder="Search by username or email" />
+    <button type="submit">Search</button>
+  </form>
 
-    <table>
-      <thead>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($users as $user): ?>
         <tr>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>john_doe</td>
-          <td>john@example.com</td>
-          <td><span class="status">Active</span></td>
-          <td><a href="#" class="btn toggle">Disable</a></td>
-        </tr>
-        <tr>
-          <td>jane_smith</td>
-          <td>jane@example.com</td>
-          <td><span class="status inactive">Inactive</span></td>
-          <td><a href="#" class="btn toggle">Enable</a></td>
-        </tr>
-        <!-- Add more rows as needed -->
-      </tbody>
-    </table>
-  </div>
-
-  <div class="section">
-    <h3>Manage Posts</h3>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Content Preview</th>
-          <th>Created At</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Welcome Post</td>
-          <td>This is the first post on the site...</td>
-          <td>2024-03-01</td>
+          <td><?= htmlspecialchars($user['username']) ?></td>
+          <td><?= htmlspecialchars($user['email']) ?></td>
           <td>
-            <a href="#" class="btn edit">Edit</a>
-            <a href="#" class="btn delete">Delete</a>
+            <span class="status <?= $user['is_active'] ? '' : 'inactive' ?>">
+              <?= $user['is_active'] ? 'Active' : 'Inactive' ?>
+            </span>
+          </td>
+          <td>
+            <a class="btn toggle <?= $user['is_active'] ? 'red' : 'green' ?>"
+               href="toggle_user.php?id=<?= $user['user_id'] ?>&status=<?= $user['is_active'] ? 0 : 1 ?>">
+              <?= $user['is_active'] ? 'Disable' : 'Enable' ?>
+            </a>
           </td>
         </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h3>Manage Posts</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Content Preview</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($posts as $post): ?>
         <tr>
-          <td>Second Post</td>
-          <td>This is another example post...</td>
-          <td>2024-03-10</td>
+          <td><?= htmlspecialchars($post['title']) ?></td>
+          <td><?= htmlspecialchars(substr($post['content'], 0, 60)) ?>...</td>
+          <td><?= $post['created_at'] ?></td>
           <td>
-            <a href="#" class="btn edit">Edit</a>
-            <a href="#" class="btn delete">Delete</a>
+            <a class="btn edit" href="edit_post.php?post_id=<?= $post['post_id'] ?>">Edit</a>
+            <a class="btn delete" href="delete_post.php?post_id=<?= $post['post_id'] ?>"
+               onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
           </td>
         </tr>
-        <!-- Add more rows as needed -->
-      </tbody>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+    <table>
+        <tr>
+            <td><a href="./aboutUs.html">About us</a></td>
+            <td><a href="./home.html">Home</a></td>
+        </tr>
+        <tr>
+            <td><a href="./contact.html">Contact</a></td>
+            <td><a href="./userProfile.html">Profile</a></td>
+        </tr>
+        <tr>
+            <td><a>Terms & Conditions</a></td>
+        </tr>
     </table>
-  </div>
+    <p id="copyright">&copy Copyright Site</p>
+</footer>
 
 </body>
 </html>

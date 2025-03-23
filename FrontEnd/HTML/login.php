@@ -10,19 +10,22 @@
         $password = $_POST['password'];
 
         $sql = "SELECT * FROM users WHERE username = :username";
-        $stmt = $conn->prepare($sql);
+        $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':username', $username);
-        $stmt->bindValue(':password', $password);
         $stmt->execute();
 
         if($res = $stmt->fetch()){
             //start a session here;
-            session_start();
-            $_SESSION['username'] = $username;
-            $_SESSION['name'] = $res['name'];
-            $_SESSION['user_image'] = $res['user_image'];
-            if(password_verify($password, $res['password'])){
+            if (password_verify($password, $res['password'])) {
+                session_start();
+                $_SESSION['username'] = $res['username'];
+                $_SESSION['name'] = $res['name'] ?? ''; // fallback if null
+                $_SESSION['user_image'] = $res['user_image'];
+                $_SESSION['role'] = $res['role'];
+                $_SESSION['email'] = $res['email'];
+                $_SESSION['isActive'] = $res['is_active'];
                 header("Location: ./home.html");
+                exit;
             } else {
                 echo "Invalid password";
                 sleep(2);
