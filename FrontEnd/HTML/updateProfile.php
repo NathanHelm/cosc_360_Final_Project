@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once 'config.php'; // adjust path as needed
+require_once 'config.php'; 
 
-// Check if user is logged in
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -10,13 +10,13 @@ if (!isset($_SESSION['user_id'])) {
 
 $userId = $_SESSION['user_id'];
 
-// Sanitize & get form inputs
+
 $username = trim($_POST['username']);
 $email = trim($_POST['email']);
 $password = trim($_POST['password']);
 
 try {
-    // Build SQL dynamically based on whether password is set
+    
     if (!empty($password)) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $sql = "UPDATE user SET username = :username, email = :email, password = :password WHERE user_id = :id";
@@ -37,12 +37,12 @@ try {
     $_SESSION['username'] = $username;
     $_SESSION['email'] = $email;
 
-    // Redirect back to profile or success page
+    
     header("Location: profile.php");
     exit();
 
 } catch (PDOException $e) {
     echo "Error updating profile: " . $e->getMessage();
-    // Optionally log error in production
+    
 }
 ?>

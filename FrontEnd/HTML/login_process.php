@@ -32,6 +32,12 @@
                     header("Location: ./admin.php");
                     exit;
                 } else {
+                    if ($_SESSION['isActive'] == 0) {
+                        echo "<script>alert('Your account is disabled.'); window.location.href = 'login.html';</script>";
+                        sleep(2);
+                        header("Location: ./login.html");
+                        exit;
+                    }
                     header("Location: ./home.html");
                     exit;
                 }

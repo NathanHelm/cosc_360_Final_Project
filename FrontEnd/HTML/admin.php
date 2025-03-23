@@ -83,14 +83,14 @@ try {
           <td><?= htmlspecialchars($user['username']) ?></td>
           <td><?= htmlspecialchars($user['email']) ?></td>
           <td>
-            <span class="status <?= $user['is_active'] ? '' : 'inactive' ?>">
-              <?= $user['is_active'] ? 'Active' : 'Inactive' ?>
+            <span class="status <?= $user['isActive'] ? '' : 'inactive' ?>">
+              <?= $user['isActive'] ? 'Active' : 'Inactive' ?>
             </span>
           </td>
           <td>
-            <a class="btn toggle <?= $user['is_active'] ? 'red' : 'green' ?>"
-               href="toggle_user.php?id=<?= $user['user_id'] ?>&status=<?= $user['is_active'] ? 0 : 1 ?>">
-              <?= $user['is_active'] ? 'Disable' : 'Enable' ?>
+            <a class="btn toggle <?= $user['isActive'] ? 'red' : 'green' ?>"
+               href="toggle_user.php?id=<?= $user['user_id'] ?>&status=<?= $user['isActive'] ? 0 : 1 ?>">
+              <?= $user['isActive'] ? 'Disable' : 'Enable' ?>
             </a>
           </td>
         </tr>
@@ -117,9 +117,9 @@ try {
           <td><?= htmlspecialchars(substr($post['content'], 0, 60)) ?>...</td>
           <td><?= $post['created_at'] ?></td>
           <td>
-            <a class="btn edit" href="edit_post.php?post_id=<?= $post['post_id'] ?>">Edit</a>
-            <a class="btn delete" href="delete_post.php?post_id=<?= $post['post_id'] ?>"
-               onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
+            <a class="btn edit" href="edit_post.php?post_id=<?= $post['product_id'] ?>">Edit</a>
+            <a class="btn delete" href="delete_post.php?post_id=<?= $post['product_id'] ?>"
+               onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
           </td>
         </tr>
       <?php endforeach; ?>
