@@ -5,7 +5,7 @@ if ($_SESSION['role'] !== 'admin') {
     exit;
 }
 
-require_once 'config.php';
+require_once '../../config.php';
 
 $search = isset($_GET['search']) ? '%' . $_GET['search'] . '%' : '%';
 
@@ -106,16 +106,16 @@ try {
       <tr>
         <th>Title</th>
         <th>Content Preview</th>
-        <th>Created At</th>
+        <th>Created By</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($posts as $post): ?>
         <tr>
-          <td><?= htmlspecialchars($post['title']) ?></td>
-          <td><?= htmlspecialchars(substr($post['content'], 0, 60)) ?>...</td>
-          <td><?= $post['created_at'] ?></td>
+          <td><?= htmlspecialchars($post['name']) ?></td>
+          <td><?= htmlspecialchars(substr($post['description'], 0, 60)) ?>...</td>
+          <td><?= $post['seller_username'] ?></td>
           <td>
             <a class="btn edit" href="edit_post.php?post_id=<?= $post['product_id'] ?>">Edit</a>
             <a class="btn delete" href="delete_post.php?post_id=<?= $post['product_id'] ?>"

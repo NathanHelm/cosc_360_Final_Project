@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once '../../config.php';
 
 if (!isset($_SESSION['username']) || empty($_POST['comment'])) {
     exit("Unauthorized or empty comment.");

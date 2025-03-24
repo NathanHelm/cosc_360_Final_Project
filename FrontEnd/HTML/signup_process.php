@@ -1,5 +1,5 @@
 <?php 
-require_once 'config.php';
+require_once '../../config.php';
 //making a basic connection to database
 try{
    

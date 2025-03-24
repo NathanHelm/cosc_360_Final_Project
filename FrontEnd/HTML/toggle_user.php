@@ -7,7 +7,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
-require_once 'config.php';
+require_once '../../config.php';
 
 if (!isset($_GET['id']) || !isset($_GET['status'])) {
     echo "Invalid request.";
