@@ -33,9 +33,9 @@
                     exit;
                 } else {
                     if ($_SESSION['isActive'] == 0) {
-                        echo "<script>alert('Your account is disabled.'); window.location.href = 'login.html';</script>";
+                        echo "<script>alert('Your account is disabled.'); window.location.href = 'login.php';</script>";
                         sleep(2);
-                        header("Location: ./login.html");
+                        header("Location: ./login.php");
                         exit;
                     }
                     header("Location: ./home.php");
@@ -47,7 +47,7 @@
                 
                 echo "Invalid password";
                 sleep(2);
-                header("Location: ./login.html");
+                header("Location: ./login.php");
                 exit;
             }
 

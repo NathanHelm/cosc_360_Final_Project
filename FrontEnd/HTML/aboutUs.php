@@ -31,7 +31,7 @@ session_start();
             </form>
     </li>
         <?php else: ?>
-            <li><a href="./login.html"><button id="signIn">Sign in</button></a></li>
+            <li><a href="./login.php"><button id="signIn">Sign in</button></a></li>
             <li><a href="./signup.php"><button id="register">Register</button></a></li>
         <?php endif; ?>
                 </ul>

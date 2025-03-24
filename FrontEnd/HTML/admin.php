@@ -1,7 +1,7 @@
 <?php
 session_start(); // Uncomment if you want session protection
 if ($_SESSION['role'] !== 'admin') {
-    header("Location: login.html");
+    header("Location: login.php");
     exit;
 }
 
@@ -51,7 +51,7 @@ try {
             </form>
     </li>
         <?php else: ?>
-            <li><a href="./login.html"><button id="signIn">Sign in</button></a></li>
+            <li><a href="./login.php"><button id="signIn">Sign in</button></a></li>
             <li><a href="./signup.php"><button id="register">Register</button></a></li>
         <?php endif; ?>
 

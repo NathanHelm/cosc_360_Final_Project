@@ -3,7 +3,7 @@ session_start();
 
 // Check if admin is logged in
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    echo "<script>alert('Admin access only.'); window.location.href = 'login.html';</script>";
+    echo "<script>alert('Admin access only.'); window.location.href = 'login.php';</script>";
     exit();
 }
 
