@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $targetDir = "../../../uploads/"; 
+    $targetDir = "../uploads/"; 
     $imageName = uniqid() . "_" . basename($image["name"]);
     $targetFilePath = $targetDir . $imageName;
 
