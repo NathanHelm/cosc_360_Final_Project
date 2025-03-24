@@ -1,3 +1,37 @@
+<?php
+require_once 'config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $productName = $_POST['productName'];
+    $desc = $_POST['desc'];
+    $price = $_POST['price'];
+    $image = $_FILES['image'];  
+
+    if (empty($productName) || empty($desc) || empty($price) || empty($image['name'])) {
+        echo "<script>alert('Please fill in all fields!'); window.history.back();</script>";
+        exit;
+    }
+
+    $targetDir = "uploads/"; 
+    $imageName = basename($image["name"]);
+    $targetFilePath = $targetDir . $imageName;
+
+   
+    if (move_uploaded_file($image["tmp_name"], $targetFilePath)) {
+        $sql = "INSERT INTO products (name, quantity, price, product_image) VALUES (?, ?, ?, ?)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$productName, 1, $price, $targetFilePath]);
+
+        echo "<script>alert('Product added successfully!'); window.location.href = 'home.php';</script>";
+    } else {
+        echo "<script>alert('Error uploading image.'); window.history.back();</script>";
+    }
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,6 +66,39 @@
         </section>
 
         <section id="createAProduct">
+        <h1>Create a product</h1>
+        <form method="post" action="createProduct.php" enctype="multipart/form-data">
+            <div class="inputField">
+                <label>Product Name <span>*</span></label>
+                <br>
+                <input type="text" name="productName" placeholder="Product name" required>
+            </div>
+
+            <div class="inputField">
+                <label>Product Description <span>*</span></label>
+                <br>
+                <textarea name="desc" placeholder="Add a description" required></textarea>
+            </div>
+
+            <div class="inputField">
+                <label>Price <span>*</span></label>
+                <br>
+                <label>$</label> 
+                <input type="number" name="price" min="0.00" max="10000.00" step="0.01" required>
+            </div>
+
+            <div class="inputField">
+                <label>Upload Image <span>*</span></label>
+                <br>
+                <input type="file" name="image" accept="image/*" required>
+            </div>
+
+            <button type="submit">Create Product</button>
+            <button type="reset">Clear</button>
+        </form>
+    </section>
+
+        <!-- <section id="createAProduct">
             <h1>Create a product</h1>
 
             <form method="post"
@@ -63,14 +130,14 @@
                     <label>Add an image <span>*</span></label>
                     <br>
                     <input type="file" name="image" required>
-                </div>
+                </div> -->
 
                 <!-- <button type="submit" id="submit">Create product</button>
                 <button type="reset" id="reset">Clear</button> -->
-            </form>
+            <!-- </form>
             <button type="reset" id="reset" form="createForm">Clear</button>
             <button type="submit" id="submit" form="createForm">Create product</button>
-        </section>
+        </section> -->
 
         <footer>
             <table>
