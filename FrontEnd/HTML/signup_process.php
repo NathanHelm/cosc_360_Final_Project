@@ -5,7 +5,7 @@ try{
    
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->query("use test_db"); //for some reason, this code is nessecary to make proper connection on my end :/ 
+    //$pdo->query("use test_db"); //for some reason, this code is nessecary to make proper connection on my end :/ 
 
     $username = $_POST['username'];
     $password = $_POST['password'];
