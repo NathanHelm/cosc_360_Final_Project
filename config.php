@@ -1,7 +1,7 @@
 <?php 
-define('DB_CONNSTR', 'mysql:host=localhost;dbname=test_db'); // Corrected the connection string
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_CONNSTR', 'mysql:host=lcosc360.ok.ubc.ca;dbname=mmridul'); // Corrected the connection string
+define('DB_USERNAME', 'mmridul');
+define('DB_PASSWORD', 'mmridul');
 
 try {
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);

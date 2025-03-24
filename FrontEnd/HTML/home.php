@@ -4,7 +4,7 @@ require_once '../../config.php';
 try {
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->query("USE test_db"); // Optional
+    //
 
     $searchTerm = isset($_GET['search']) ? trim($_GET['search']) : '';
 
