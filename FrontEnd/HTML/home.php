@@ -1,15 +1,24 @@
 <?php
 require_once 'config.php';
 
-$sql = "SELECT * FROM products"; 
-$result = $pdo->query($sql);
+try {
+    $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->query("USE your_database"); // Optional
+
+    $sql = "SELECT * FROM products";
+    $result = $pdo->query($sql);
+} catch (PDOException $e) {
+    echo "Database error: " . $e->getMessage();
+    exit();
+}
 ?>
 
 
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf=8">
+        <meta charset="UTF-8"> 
         <title>Home</title>
         <link rel="stylesheet" href="../CSS/homeStyle.css">
         <link rel="stylesheet" href="../CSS/headerfooter.css">
