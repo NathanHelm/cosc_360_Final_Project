@@ -47,7 +47,8 @@ if (!isset($_SESSION['username'])) {
 
     <div class="profile-container">
         <div class="profile-header">
-            <img src="../Images/blankProfilePic.png" alt="User Avatar" class="avatar">
+        <img src="<?= htmlspecialchars($_SESSION['user_image']) ?>" alt="User Avatar" class="avatar">
+
             <h2><?php echo htmlspecialchars($_SESSION['username']); ?></h2>
             <p><?php echo htmlspecialchars($_SESSION['email']); ?></p>
         </div>
