@@ -38,7 +38,7 @@
                         header("Location: ./login.html");
                         exit;
                     }
-                    header("Location: ./home.html");
+                    header("Location: ./home.php");
                     exit;
                 }
                 

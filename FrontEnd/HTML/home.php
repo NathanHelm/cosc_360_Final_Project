@@ -4,7 +4,7 @@ require_once 'config.php';
 try {
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->query("USE your_database"); // Optional
+    $pdo->query("USE test_db"); // Optional
 
     $sql = "SELECT * FROM products";
     $result = $pdo->query($sql);
@@ -22,12 +22,13 @@ try {
         <title>Home</title>
         <link rel="stylesheet" href="../CSS/homeStyle.css">
         <link rel="stylesheet" href="../CSS/headerfooter.css">
+        
     </head>
     <body id="home">
         <header>
             <nav>
                 
-                <a href="./home.html#home">
+                <a href="./home.php#home">
                     <img src="../Images/homeIcon.png" alt="Home" width="25px" height="25px">
                 </a>
 
@@ -87,11 +88,11 @@ try {
         <section id="productsContainer">
 
                 <!-- <div class="card">
-                    <a href="./productDetails.html">
+                    <a href="./productDetails.php">
                         <img src="../Images/skirt.png" alt="skirt">
                     </a>
                     <div class="cardText">
-                        <h3><a href="./productDetails.html">Vintage skirt</a></h3>
+                        <h3><a href="./productDetails.php">Vintage skirt</a></h3>
                         <p>By <a>JaneDoe43</a></p>
                         <p>$5.00</p>
                         <button>Add to cart</button>
@@ -126,7 +127,7 @@ try {
             <table>
                 <tr>
                     <td><a href="./aboutUs.php">About us</a></td>
-                    <td><a href="./home.html">Home</a></td>
+                    <td><a href="./home.php">Home</a></td>
                 </tr>
 
                 <tr>

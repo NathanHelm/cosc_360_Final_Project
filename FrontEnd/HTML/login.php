@@ -14,14 +14,14 @@
 <body>
   <header>
     <nav>
-        <a href="./home.html#home">
+        <a href="./home.php#home">
             <img src="../Images/homeIcon.png" alt="Home" width="25px" height="25px">
         </a>
 
         <p class="logo">Mosaic</p>
 
         <ul>
-            <li class="basic"><a href="./home.html#products">Products</a></li>
+            <li class="basic"><a href="./home.php#products">Products</a></li>
             <li class="basic"><a href="./createProduct.html">Sell</a></li>
             <li class="basic"><a href="./aboutUs.php">About us</a></li>
             <li class="basic"><a href="./contact.php">Contact</a></li>
@@ -77,7 +77,7 @@
       <table>
           <tr>
               <td><a href="./aboutUs.php">About us</a></td>
-              <td><a href="./home.html">Home</a></td>
+              <td><a href="./home.php">Home</a></td>
           </tr>
 
           <tr>
