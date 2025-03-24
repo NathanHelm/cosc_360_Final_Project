@@ -1,5 +1,5 @@
 <?php 
-define('DB_CONNSTR', 'mysql:host=lcosc360.ok.ubc.ca;dbname=mmridul'); // Corrected the connection string
+define('DB_CONNSTR', 'mysql:host=cosc360.ok.ubc.ca;dbname=mmridul'); // Corrected the connection string
 define('DB_USERNAME', 'mmridul');
 define('DB_PASSWORD', 'mmridul');
 
