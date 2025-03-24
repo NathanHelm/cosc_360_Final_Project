@@ -1,3 +1,11 @@
+<?php
+require_once 'config.php';
+
+$sql = "SELECT * FROM products"; 
+$result = $pdo->query($sql);
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -69,7 +77,7 @@
 
         <section id="productsContainer">
 
-                <div class="card">
+                <!-- <div class="card">
                     <a href="./productDetails.html">
                         <img src="../Images/skirt.png" alt="skirt">
                     </a>
@@ -79,7 +87,28 @@
                         <p>$5.00</p>
                         <button>Add to cart</button>
                     </div>
-                </div>
+                </div> -->
+
+                <?php
+        // Check if there are products
+        if ($result->rowCount() > 0) {
+            // Loop through each product and display it
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                echo '<div class="card">';
+                echo '<a href="./productDetails.php?id=' . $row['product_id'] . '">'; // Link to product details page
+                echo '<img src="' . $row['product_image'] . '" alt="' . $row['name'] . '">'; // Display product image
+                echo '</a>';
+                echo '<div class="cardText">';
+                echo '<h3><a href="./productDetails.php?id=' . $row['product_id'] . '">' . htmlspecialchars($row['name']) . '</a></h3>'; // Display product name
+                echo '<p>$' . htmlspecialchars($row['price']) . '</p>'; // Display product price
+                echo '<button>Add to cart</button>'; // Add to cart button
+                echo '</div>';
+                echo '</div>';
+            }
+        } else {
+            echo '<p>No products available.</p>';
+        }
+        ?>
 
         </section>
         
