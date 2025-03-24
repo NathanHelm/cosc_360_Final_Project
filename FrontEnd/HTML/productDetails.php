@@ -62,7 +62,7 @@ $loggedIn = isset($_SESSION['username']);
             </form>
             </li>
             <?php else: ?>
-            <li><a href="./login.html"><button id="signIn">Sign in</button></a></li>
+            <li><a href="./login.php"><button id="signIn">Sign in</button></a></li>
             <li><a href="./signup.php"><button id="register">Register</button></a></li>
             <?php endif; ?>
                 </ul>
@@ -88,7 +88,7 @@ $loggedIn = isset($_SESSION['username']);
 
         <form>
             <label for="quantity">Quantity <span>*</span></label><br>
-            <input type="number" placeholder="Enter a quantity" min="1" max="100" name="quantity"/>
+            <input type="number" placeholder="Enter a quantity" min="1" max="<?= $product['quantity']?>" name="quantity"/>
         </form>
 
         <button>Add to cart</button>
