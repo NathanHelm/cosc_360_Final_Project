@@ -4,7 +4,7 @@ require_once '../../config.php';
 try {
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->query("use mmridul");
+   // $pdo->query("use mmridul");
 
     $searchTerm = isset($_GET['search']) ? trim($_GET['search']) : '';
 
