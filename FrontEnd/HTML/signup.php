@@ -36,7 +36,7 @@ session_start();
             <li class="basic"><a href="./home.html#products">Products</a></li>
             <li class="basic"><a href="./createProduct.html">Sell</a></li>
             <li class="basic"><a href="./aboutUs.php">About us</a></li>
-            <li class="basic"><a href="./contact.html">Contact</a></li>
+            <li class="basic"><a href="./contact.php">Contact</a></li>
             <li><a href="./cart.html"><img src="../Images/cart.png" alt="cart" width="25px" height="25px"></a></li>
             <?php if (isset($_SESSION['username'])): ?>
             <li>
@@ -106,7 +106,7 @@ session_start();
           </tr>
 
           <tr>
-              <td><a href="./contact.html">Contact</a></td>
+              <td><a href="./contact.php">Contact</a></td>
               <td><a href="./profile.php">Profile</a></td>
           </tr>
 
