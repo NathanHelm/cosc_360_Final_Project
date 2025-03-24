@@ -6,8 +6,18 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->query("USE test_db"); // Optional
 
+    $searchTerm = isset($_GET['search']) ? trim($_GET['search']) : '';
+
+if ($searchTerm !== '') {
+    $sql = "SELECT * FROM products WHERE name LIKE :search OR description LIKE :search";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':search' => '%' . $searchTerm . '%']);
+    $result = $stmt;
+} else {
     $sql = "SELECT * FROM products";
     $result = $pdo->query($sql);
+}
+
 } catch (PDOException $e) {
     echo "Database error: " . $e->getMessage();
     exit();
@@ -61,7 +71,17 @@ try {
             <div id="products"> </div>
 
             <div id="searchBar">
-                <input type="search" placeholder="Search">
+            <form id="searchBar" method="GET" action="home.php">
+            <input type="search" name="search" placeholder="Search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+            <button type="submit">Search</button>
+
+    <!-- Optional: Add categories later -->
+    <!-- <ul>
+        <li>All</li>
+        <li>Clothing</li>
+        <li>Artwork</li>
+    </ul> -->
+                </form>
 
                 <ul>
                     <li>All</li>
