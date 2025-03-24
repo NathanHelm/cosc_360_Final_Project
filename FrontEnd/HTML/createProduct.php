@@ -15,20 +15,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productName = $_POST['productName'];
     $desc = $_POST['desc'];
     $price = $_POST['price'];
-    $image = $_FILES['image'];  
+    $image = $_FILES['image'];
 
     if (empty($productName) || empty($desc) || empty($price) || empty($image['name'])) {
         echo "<script>alert('Please fill in all fields!'); window.history.back();</script>";
         exit;
     }
 
-    $targetDir = "../uploads/"; 
+    // Check upload errors
+    if ($image['error'] !== UPLOAD_ERR_OK) {
+        echo "<script>alert('Upload error code: " . $image['error'] . "'); window.history.back();</script>";
+        exit;
+    }
+
+    // Build target path
+    $targetDir = "../uploads/";
     $imageName = uniqid() . "_" . basename($image["name"]);
     $targetFilePath = $targetDir . $imageName;
 
+    // Optional: Debug real path
+    // echo realpath($targetFilePath); exit;
+
+    // Ensure uploads directory exists
+    if (!is_dir($targetDir)) {
+        echo "<script>alert('Upload folder does not exist.'); window.history.back();</script>";
+        exit;
+    }
+
+    // Ensure it is writable
+    if (!is_writable($targetDir)) {
+        echo "<script>alert('Upload folder is not writable.'); window.history.back();</script>";
+        exit;
+    }
+
     // Upload image
     if (move_uploaded_file($image["tmp_name"], $targetFilePath)) {
-        $seller = isset($_SESSION['username']) ? $_SESSION['username'] : 'guest'; // Optional seller tracking
+        $seller = isset($_SESSION['username']) ? $_SESSION['username'] : 'guest';
         $sql = "INSERT INTO products (name, description, quantity, price, product_image, seller_username) 
                 VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
@@ -40,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
