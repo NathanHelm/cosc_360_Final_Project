@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 23, 2025 at 09:05 PM
+-- Generation Time: Mar 24, 2025 at 03:36 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
-
-
-/*
-I've updated the sql dump-- now there is a varchar column : email 
--nathan
-*/
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cost`
+-- Database: `test_db`
 --
 
 -- --------------------------------------------------------
@@ -48,7 +42,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `user_image`, `role`, `isActive`, `email`) VALUES
-(1, 'admin', 'admin', '/user_img/img_avatar.png', 'admin', 1, '');
+(1, 'admin', 'admin', '/user_img/img_avatar.png', 'admin', 1, ''),
+(2, 'mm11', '$2y$10$0pFpAKLRBGa.p9IdBsf6BujxXfIA5/VGB3a6zMcBkxxZW3Fw70Gwq', 'img_avatar.png', 'user', 1, 'mm@mm.omc');
 
 --
 -- Indexes for dumped tables
@@ -69,8 +64,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

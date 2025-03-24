@@ -24,17 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Table structure for table `comments`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE `comments` (
+  `comment_id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `comment` text NOT NULL,
   `product_id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  `product_image` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `seller_username` varchar(255) NOT NULL
+  `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -42,31 +40,33 @@ CREATE TABLE `products` (
 --
 
 --
--- Indexes for table `products`
+-- Indexes for table `comments`
 --
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`),
-  ADD KEY `seller_username` (`seller_username`);
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `username` (`username`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT for table `comments`
 --
-ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `comments`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `products`
+-- Constraints for table `comments`
 --
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`seller_username`) REFERENCES `user` (`username`);
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
