@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2025 at 03:36 AM
+-- Generation Time: Mar 24, 2025 at 06:13 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,7 +42,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `user_image`, `role`, `isActive`, `email`) VALUES
-(1, 'admin', 'admin', '/user_img/img_avatar.png', 'admin', 1, ''),
+(1, 'admin', 'admin', '/user_img/img_avatar.png', 'admin', 1, 'admin@ddmin.co'),
 (2, 'mm11', '$2y$10$0pFpAKLRBGa.p9IdBsf6BujxXfIA5/VGB3a6zMcBkxxZW3Fw70Gwq', 'img_avatar.png', 'user', 1, 'mm@mm.omc');
 
 --
