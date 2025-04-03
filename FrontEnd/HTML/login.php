@@ -59,7 +59,7 @@
                     <input name="username" type="input" placeholder="enter username here." required/>
                     <br>
                     <p>Password</p>
-                    <input name="password" type="input" placeholder="enter password here." required/>
+                    <input name="password" type="password" placeholder="enter password here." required/>
                     <br>
                     <button type="submit" class="submit">Log in</button>
                 </form>
