@@ -1,6 +1,10 @@
 <?php
 session_start();
 require_once '../../config.php';
+if (!isset($_SESSION['username'])) {
+    echo "<script>alert('You must be logged in to create a product.'); window.location.href = 'login.php';</script>";
+    exit;
+}
 
 // Establish database connection
 try {
