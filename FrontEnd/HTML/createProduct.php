@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo "<script>alert('Product added successfully!'); window.location.href = 'home.php';</script>";
     } else {
-        echo "<script>alert('Error uploading image.'); window.history.back();</script>";
+        echo "<script>alert('Error uploading image.'); window.location.href = 'home.php';</script>";
     }
 }
 ?>
