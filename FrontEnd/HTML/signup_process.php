@@ -107,7 +107,7 @@ function AddUserImageToFolder()
     {
         echo "we got a problem";
     }
-    if(!file_exists(USER_IMAGE_PATH))
+    if(!file_exists("../../user_img"))
     {
         echo "file does not exist"; 
     }
