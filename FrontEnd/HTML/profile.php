@@ -37,6 +37,7 @@ if (!isset($_SESSION['username'])) {
             <button type="submit" id="signOut">Log out</button>
             </form>
             </li>
+            <li><a href="./userProfile.php"><button id="profile">Profile</button></a></li>
             <?php else: ?>
             <li><a href="./login.php"><button id="signIn">Sign in</button></a></li>
             <li><a href="./signup.php"><button id="register">Register</button></a></li>
