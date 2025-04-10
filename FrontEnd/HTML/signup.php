@@ -1,5 +1,6 @@
 <?php 
 $duplication = $_GET["duplicate"];
+$uploadErr = $_GET["uploadErr"];
 $username = $_SESSION["username"];
 if(isset($duplication))
 {
@@ -8,6 +9,13 @@ if(isset($duplication))
     echo "<script> alert(\"username $username already taken \" ); </script>";
   }
   
+}
+if(isset($uploadErr))
+{
+  if($uploadErr == "true")
+  {
+    echo "<script> alert(\"there was a issue with the image you have chosen\"); </script>";
+  }
 }
 session_start();
 ?>
@@ -64,7 +72,7 @@ session_start();
             
       
                 <!--when you click sumbit, you are taken to home page (and you are signed up)-->
-                <form method="post" action="./signup_process.php" class="flex_column signup_box">
+                <form method="post" action="./signup_process.php" class="flex_column signup_box" enctype="multipart/form-data">
                     <p>email
                     </p>
                     <input id="email" name="email" type="email" placeholder="enter email here." required/>
@@ -76,8 +84,8 @@ session_start();
                     <p>Password</p>
                     <input id="password" name="password" type="input" placeholder="enter password here." required/>
                     <br>
-                    <p>Profile Image
-                        
+                    <p>
+                      Profile Image  
                     </p>
                     <input id="user_image" type="file" name="user_image" accept="image/*" required />
                     <br>

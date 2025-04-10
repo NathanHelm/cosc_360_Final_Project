@@ -9,7 +9,7 @@ try{
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $userImage = $_POST['user_image'];
+    $userImage = $_FILES['user_image']['name'];
     $email = $_POST['email'];
 
     //check for duplicate username
@@ -30,6 +30,14 @@ try{
         //return to signup page, add alert to script. 
         header("location: signup.php?duplicate=true");
         exit;
+    }
+    if(!AddUserImageToFolder())
+    {
+        //ERROR HERE!!!
+        //uploadErr
+       // header("location: signup.php?uploadErr=true");
+        exit;
+
     }
 
     //insert values
@@ -56,6 +64,8 @@ try{
     $_SESSION['email'] = $email;
     $_SESSION['user_image'] = $userImage;
 
+   
+
     header("location: profile.php");
     $pdo = null;
 }
@@ -79,6 +89,45 @@ function HashPassword($password)
     $hash = password_hash($password, 
     PASSWORD_DEFAULT);
     return $hash;
+}
+function AddUserImageToFolder()
+{
+    $userImage = $_FILES['user_image']['name'];
+    if(!isset($userImage))
+    {
+        echo "null";
+        return false;
+    }
+    if(empty($userImage))
+    {
+        echo "empty";
+        return false;
+    }
+    if($_FILES['user_image']['error'] !== UPLOAD_ERR_OK)
+    {
+        echo "we got a problem";
+    }
+    if(!file_exists(USER_IMAGE_PATH))
+    {
+        echo "file does not exist"; 
+    }
+    /*
+    For some unkown reason I cannot get this to work :(((
+    
+    */
+    if(move_uploaded_file($_FILES['user_image']['tmp_name'], "../../user_img/" . $userImage))
+    {
+        echo "file successfully uploaded";
+        return true;
+    }
+    else
+    {
+        //error with upload :(
+        echo " issue";
+        return false;
+    }
+    
+   // USER_IMAGE_PATH   //our path (static)
 }
 
  
