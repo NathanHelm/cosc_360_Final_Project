@@ -25,7 +25,7 @@ try {
     $stmt->execute([$postId]);
 
     
-    header("Location: admin_dashboard.php?delete=success");
+    header("Location: admin_dashboard.php");
     exit;
 
 } catch (PDOException $e) {
