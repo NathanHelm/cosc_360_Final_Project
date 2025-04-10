@@ -25,7 +25,7 @@ try {
     $stmt->execute([$postId]);
 
     
-    header("Location: admin_dashboard.php");
+    header("Location: admin.php");
     exit;
 
 } catch (PDOException $e) {
