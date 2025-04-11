@@ -33,9 +33,8 @@ try{
     }
     if(!AddUserImageToFolder())
     {
-        //ERROR HERE!!!
         //uploadErr
-       // header("location: signup.php?uploadErr=true");
+        header("location: signup.php?uploadErr=true");
         exit;
 
     }
@@ -105,29 +104,33 @@ function AddUserImageToFolder()
     }
     if($_FILES['user_image']['error'] !== UPLOAD_ERR_OK)
     {
-        echo "we got a problem";
+        return false;
     }
-    if(!file_exists("../../user_img"))
+    if(!file_exists(USER_IMAGE_PATH))
     {
         echo "file does not exist"; 
+        return false;
     }
-    /*
-    For some unkown reason I cannot get this to work :(((
-    
-    */
-    if(move_uploaded_file($_FILES['user_image']['tmp_name'], "../../user_img/" . $userImage))
+    if (!is_uploaded_file($_FILES['user_image']['tmp_name'])) {
+        echo "Not a valid uploaded file.";
+        return false;
+    }
+    if (!is_writable(USER_IMAGE_PATH)) {
+        echo "Destination directory is not writable.";
+        return false;
+    }
+   
+    if(move_uploaded_file($_FILES['user_image']['tmp_name'], USER_IMAGE_PATH . $userImage))
     {
         echo "file successfully uploaded";
         return true;
     }
     else
     {
-        //error with upload :(
-        echo " issue";
+        //NOTE: this could arise if there is a permissions issue, try running 'chmod 777 user_img' in your terminal.
         return false;
     }
     
-   // USER_IMAGE_PATH   //our path (static)
 }
 
  
