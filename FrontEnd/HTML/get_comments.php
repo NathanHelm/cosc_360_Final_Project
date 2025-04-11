@@ -5,7 +5,7 @@ $productId = (int)$_GET['product_id'];
 
 try {
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
-    $stmt = $pdo->prepare("SELECT * FROM products join comments on comments.product_id = products.product_id join user on products.seller_username = user.username WHERE products.product_id = ? ORDER BY created_at DESC;");
+    $stmt = $pdo->prepare("SELECT * FROM products join comments on products.product_id = comments.product_id join user on user.username = comments.username WHERE products.product_id = ? ORDER BY created_at DESC;");
     $stmt->execute([$productId]);
     $comments = $stmt->fetchAll();
     
