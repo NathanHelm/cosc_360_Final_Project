@@ -1,4 +1,14 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+
+// Redirect to login if not logged in
+if (isset($_SESSION['username'])) {
+    echo "<script>alert('You are already logged in.');</script>";
+    header("Location: profile.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
