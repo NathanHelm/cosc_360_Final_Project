@@ -1,7 +1,13 @@
 <?php 
+/*
 define('DB_CONNSTR', 'mysql:host=localhost;dbname=test_database'); // Corrected the connection string
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
+*/
+define('DB_CONNSTR', 'mysql:host=localhost;dbname=mmridul'); // Corrected the connection string
+define('DB_USERNAME', 'mmridul');
+define('DB_PASSWORD', 'mmridul');
+
 define('USER_IMAGE_PATH', "../../user_img/"); //path to user img
 
 try {
