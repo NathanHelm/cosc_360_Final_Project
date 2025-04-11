@@ -14,7 +14,7 @@ try {
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
+    $stmt = $pdo->prepare("SELECT * FROM products join user on products.seller_username = user.username WHERE product_id = ?;");
     $stmt->execute([$productId]);
     $product = $stmt->fetch();
 
@@ -82,7 +82,7 @@ $loggedIn = isset($_SESSION['username']);
         <h1><?= htmlspecialchars($product['name']) ?></h1>
         <div id="productSeller">
             <h2>By <a><?= htmlspecialchars($product['seller_username']) ?></a></h2>
-            <img src="../Images/blankProfilePic.png" alt="Profile picture">
+            <img src="<?= USER_IMAGE_PATH . htmlspecialchars($product['user_image']) ?>" alt="Profile picture">
         </div>
         <h3>$<?= htmlspecialchars($product['price']) ?></h3>
         <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
