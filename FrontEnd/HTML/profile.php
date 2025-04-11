@@ -49,7 +49,7 @@ if (!isset($_SESSION['username'])) {
 
     <div class="profile-container">
         <div class="profile-header">
-        <img src= "<?php echo "" . USER_IMAGE_PATH . htmlspecialchars($_SESSION['user_image']) ?>" alt="User Avatar" class="avatar">
+        <img src= '<?php echo "" . USER_IMAGE_PATH . htmlspecialchars($_SESSION['user_image']) ?>' alt="User Avatar" class="avatar">
 
             <h2><?php echo htmlspecialchars($_SESSION['username']); ?></h2>
             <p><?php echo htmlspecialchars($_SESSION['email']); ?></p>
