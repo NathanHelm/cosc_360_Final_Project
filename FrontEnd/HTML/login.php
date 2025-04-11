@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-// Redirect to login if not logged in
+
 if (isset($_SESSION['username'])) {
     echo "<script>alert('You are already logged in.');</script>";
     header("Location: profile.php");
@@ -63,7 +63,7 @@ if (isset($_SESSION['username'])) {
             <h1 class="signup_title">login</h1>
             
       
-                <!--when you click sumbit, you are taken to home page (and you are signed up)-->
+               
                 <form method="POST" action="login_process.php" class="flex_column signup_box">
                     <p>Username
                     </p>

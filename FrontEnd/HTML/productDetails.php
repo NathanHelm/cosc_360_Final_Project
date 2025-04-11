@@ -111,7 +111,7 @@ $loggedIn = isset($_SESSION['username']);
     <?php endif; ?>
 
     <div id="commentsContainer">
-        <!-- Comments loaded here via AJAX -->
+        
     </div>
 </section>
 

@@ -12,7 +12,7 @@ try{
     $userImage = $_FILES['user_image']['name'];
     $email = $_POST['email'];
 
-    //check for duplicate username
+  
     if(!isset($username) || !isset($password) || !isset($email) || !isset($userImage))
     {
         echo "reading null values";
@@ -27,13 +27,13 @@ try{
     
     if(IsDuplicateUsername(count($rows)))
     {
-        //return to signup page, add alert to script. 
+        
         header("location: signup.php?duplicate=true");
         exit;
     }
     if(!AddUserImageToFolder())
     {
-        //uploadErr
+        
         header("location: signup.php?uploadErr=true");
         exit;
 
@@ -55,8 +55,7 @@ try{
     $stmt->bindValue(":email", $email);
     $stmt->execute();
     
-    //echo "values are inserted to DB!" . "<br> $username, $password, $userImage, 'user', 1, $email";
-    //set session variables
+    
     session_start();
 
     $_SESSION['username'] = $username;
@@ -127,7 +126,7 @@ function AddUserImageToFolder()
     }
     else
     {
-        //NOTE: this could arise if there is a permissions issue, try running 'chmod 777 user_img' in your terminal.
+        
         return false;
     }
     

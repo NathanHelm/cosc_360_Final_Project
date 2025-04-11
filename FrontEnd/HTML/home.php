@@ -85,12 +85,7 @@ if ($searchTerm !== '') {
             <input type="search" name="search" placeholder="Search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
             <button type="submit">Search</button>
 
-    <!-- Optional: Add categories later -->
-    <!-- <ul>
-        <li>All</li>
-        <li>Clothing</li>
-        <li>Artwork</li>
-    </ul> -->
+   
                 </form>
 
                 <ul>
@@ -130,18 +125,18 @@ if ($searchTerm !== '') {
                 </div> -->
 
                 <?php
-        // Check if there are products
+        
         if ($result->rowCount() > 0) {
-            // Loop through each product and display it
+           
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 echo '<div class="card">';
-                echo '<a href="./productDetails.php?id=' . $row['product_id'] . '">'; // Link to product details page
-                echo '<img src="' . $row['product_image'] . '" alt="' . $row['name'] . '">'; // Display product image
+                echo '<a href="./productDetails.php?id=' . $row['product_id'] . '">'; 
+                echo '<img src="' . $row['product_image'] . '" alt="' . $row['name'] . '">'; 
                 echo '</a>';
                 echo '<div class="cardText">';
                 echo '<h3><a href="./productDetails.php?id=' . $row['product_id'] . '">' . htmlspecialchars($row['name']) . '</a></h3>'; // Display product name
-                echo '<p>$' . htmlspecialchars($row['price']) . '</p>'; // Display product price
-                echo '<button>Add to cart</button>'; // Add to cart button
+                echo '<p>$' . htmlspecialchars($row['price']) . '</p>'; 
+                echo '<button>Add to cart</button>'; 
                 echo '</div>';
                 echo '</div>';
             }

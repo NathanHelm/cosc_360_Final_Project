@@ -1,5 +1,5 @@
 <?php
-session_start(); // Uncomment if you want session protection
+session_start(); 
 if ($_SESSION['role'] !== 'admin') {
     header("Location: login.php");
     exit;

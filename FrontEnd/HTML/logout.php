@@ -1,12 +1,12 @@
 <?php
-session_start();              // Start the session if not already started
+session_start();              
 
-session_unset();              // Unset all session variables
-session_destroy();            // Destroy the session
+session_unset();              
+session_destroy();            
 
-require_once '../../config.php';    // Include the config file to access the $pdo variable
-$pdo = null;                  // Close the database connection
+require_once '../../config.php';    
+$pdo = null;                 
 
-header("Location: login.php"); // Redirect to login page (or home.php)
+header("Location: login.php"); 
 exit;
 ?>

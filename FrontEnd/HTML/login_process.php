@@ -21,7 +21,7 @@
             if (password_verify($password, $res['password']) || $password == $res['password']) {
                 $_SESSION['user_id'] = $res['user_id'];
                 $_SESSION['username'] = $res['username'];
-                $_SESSION['name'] = $res['name'] ?? ''; // fallback if null
+                $_SESSION['name'] = $res['name'] ?? ''; 
                 $_SESSION['user_image'] = $res['user_image'];
                 $_SESSION['role'] = $res['role'];
                 $_SESSION['email'] = $res['email'];
@@ -55,7 +55,7 @@
            
             echo "Invalid username";
             sleep(2);
-            header("Location: ./login.php"); //update: I believe if the username is incorrect they should be taken back to the homepage
+            header("Location: ./login.php"); 
             exit;
         }
         

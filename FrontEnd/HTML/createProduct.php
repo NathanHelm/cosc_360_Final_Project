@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-// Establish database connection
+
 try {
     $pdo = new PDO(DB_CONNSTR, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -26,33 +26,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Check upload errors
+    
     if ($image['error'] !== UPLOAD_ERR_OK) {
         echo "<script>alert('Upload error code: " . $image['error'] . "'); window.history.back();</script>";
         exit;
     }
 
-    // Build target path
     $targetDir = "../uploads/";
     $imageName = uniqid() . "_" . basename($image["name"]);
     $targetFilePath = $targetDir . $imageName;
 
-    // Optional: Debug real path
-    // echo realpath($targetFilePath); exit;
-
-    // Ensure uploads directory exists
+    
+   
     if (!is_dir($targetDir)) {
         echo "<script>alert('Upload folder does not exist.'); window.history.back();</script>";
         exit;
     }
 
-    // Ensure it is writable
     if (!is_writable($targetDir)) {
         echo "<script>alert('Upload folder is not writable.'); window.history.back();</script>";
         exit;
     }
 
-    // Upload image
+
     if (move_uploaded_file($image["tmp_name"], $targetFilePath)) {
         $seller = isset($_SESSION['username']) ? $_SESSION['username'] : 'guest';
         $sql = "INSERT INTO products (name, description, quantity, price, product_image, seller_username) 
