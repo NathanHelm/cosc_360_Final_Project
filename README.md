@@ -59,5 +59,42 @@ Error Handling
 - The website includes fallback messages for invalid navigation (e.g., missing product ID or unauthorized access).
 - Simple Discussion Grouping
 - Each product page contains a comment thread (topic) that groups discussion relevant to that product.
+File Description
+- FrontEnd: Actually contains all the frontend files that are actually shown to the user. 
+- CSS - This folder contains all the css for relevant files.
+- HTML - This contains HTML and PHP files that are presented to the user. 
+- aboutUs.php - About us page
+- Admin.php - Admin dashboard
+- Cart.html - Cart Page
+- Cart.php -  Cart implementation page (still needs implementation).
+- Contact.php - Page to contain the host. 
+- createProduct.php - Page to create new product. 
+- Delete_post.php - PHP process to delete a post.
+- Get_comments.php - PHP process to get comments.
+- Home.php - Home page.
+- Login.php - Login page
+- Login_process.php-  PHP process for login. 
+- Post_comment.php - PHP process to post comments.
+- productDetails.php - Page for each individual product where users can comment.
+- Profile.php - User profile page
+- Signup.php -  Signup page
+- Singup_process.php -  PHP process for signup
+- Toggle_user.php - PHP process to enable/disable user
+- updateProfile.php - PHP process to update user info. 
+- Script - This contains all the JS files used for validation. 
+- Tests - Contains tests for JS validation.
+- contact.js - Contains tests validation for contactUs page.
+- createProduct.js - Contains test for createProduct page.
+- signupvalidation.js - Contains test for signup page. 
+
+
+Site Overview:
+The website is essentially an e-commerce platform built on PHP that lets users browse, search for products, register, log in, leave comments on things, and manage their accounts. An admin panel for controlling users and postings is also included. PHP and MySQL are used to build the backend, and HTML, CSS, and JavaScript are used to create the frontend, which has a responsive design and dynamic content loading with AJAX.
+
+Limitations:
+Cart functionality is incomplete
+No payment integration is implemented
+No email verification or password recovery is implemented
+The current architecture may not scale well with large user volumes.
 
 

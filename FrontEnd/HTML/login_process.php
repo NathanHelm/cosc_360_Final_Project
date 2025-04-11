@@ -55,7 +55,7 @@
            
             echo "Invalid username";
             sleep(2);
-            header("Location: ./cart.html");
+            header("Location: ./login.php"); //update: I believe if the username is incorrect they should be taken back to the homepage
             exit;
         }
         
